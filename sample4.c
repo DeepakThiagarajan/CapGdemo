@@ -1,30 +1,18 @@
-#include<stdio.h>
+#include <stdio.h>
 
 int main()
 {
+int a =10;
+int b=20;
 
-/*int i=1011;
-float f=11.11;
-double d=12.22;
-char c='x';
+if(a<b)
+{
+printf("\n A is bigger\n");
+}
+else
+{
+printf("B is bigger\n");
+}
 
-unsigned int ui=100;
-
-printf("\ni=%03d",i);
-printf("\nf=%f",f);
-printf("\nd=%lf",d);
-printf("\nui=%u",&i);
-printf("\n\n");*/
-
-int i;
-float f;
-double d;
-char c;
-
-scanf("%c",&c);
-scanf("%d",&i);
-
-printf(" \n i=%d",i);
-printf(" \n c=%c Ascii value=%d",c,c);
 return 0;
 }
