@@ -4,6 +4,7 @@ int main()
 {
 	int a=200;
 	int b;int amt;
+	  
 	printf("Welcome to **EB");
 	printf("\n Enter your units:");
 
