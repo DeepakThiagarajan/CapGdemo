@@ -2,15 +2,17 @@
 
 int main()
 {
-  int x=1;
-  while(x<5)
+  int whistle=0;
+  printf("\n Whistle count\n");
+
+  while(whistle<3)
   {
-    x+=1;
+    if(whistle
+    whistle+=1;
 
-	printf("\nValue of x:");
-
-	printf("\n%d",x);
+	printf("\n%d",whistle);
   }
+   printf("\n The Rice is cooked\n");
 
    printf("\nBye\n");
 

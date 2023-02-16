@@ -2,7 +2,7 @@
 
 int main()
 {
-	int a=200;
+	/*int a=200;
 	int b;int amt;
 	  
 	printf("Welcome to **EB");
@@ -35,8 +35,16 @@ int main()
 		printf("\n You have consumed with 200 units\n");
 	}
 	printf("\n Your consumed units:%d\tYour calculated amount:%d\n",b,amt);
-	printf("\t\tHave a Happy Day\n");
+	printf("\t\tHave a Happy Day\n");*/
+
+	unsigned int count;
+	count = -2;
+	while(count<=10)
+	{
+		printf("\nCount=%d",count);
+		count++;
+	}
+	printf("\nCount=%d",count);
 
 	return 0;
 }
-
