@@ -1,11 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-int areaSqu(int);
-int areaRec(int,int);
-int areaTri(int,int);
-int areaCir(int);
-
+#include<myHeader.h>
+#include<areaSqu.h>
+#include<areaRec.h>
+#include<areaTri.h>
+#include<areaCir.h>
 
 int main()
 {
@@ -46,7 +43,7 @@ int main()
 
 	return(EXIT_SUCCESS);
 }
-
+/*
 int areaRec(int op1,int op2)
 {
 	return(op1*op2);
@@ -75,3 +72,4 @@ int areaTri(int op1,int op2)
 
 	return(res);
 }
+*/

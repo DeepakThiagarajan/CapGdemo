@@ -7,16 +7,16 @@ int main()
 {
 	int op1,op2;
 	char op;
-	int result=0;
+	int result =0;	
+	#ifdef DEBUG
+		printf("\nEnter two operands values:\n");
+		scanf("%d%d",&op1,&op2);
+	#else
+		printf("\nEnter one operand values:\n");
+		scanf("%d",&op1);
+		op2=op1;
+	#endif
 
-	printf("\nEnter two operands values:\n");
-	scanf("%d%d",&op1,&op2);
-	
-	/*printf("\nEnter the operation to be carried out:");
-	printf("\nEnter,\n+. Addition\n*. Product\nChoice: ");
-	scanf(" ");
-	scanf("%c",&op);
-	*/
 	
 	op=disp();
 	switch(op)
