@@ -1,0 +1,36 @@
+CC = gcc
+CFLAGS = -Wall -c -g
+LDFLAGS = -o
+OBJ = ./obj
+SRC = ./src
+BIN = ./bin
+INC = ./inc/
+
+IFLAGS = -I $(INC)
+
+$(BIN)/sCalc: prg1.o sum.o multi.o disp.o
+	@echo "Buildingg sCalc Application"
+	$(CC) $(LDFLAGS) $(BIN)/sCalc  $(OBJ)/prg1.o $(OBJ)/sum.o $(OBJ)/multi.o $(OBJ)/disp.o
+	@echo "Built sCalc Application"
+
+prg1.o: $(SRC)/prg1.c
+	$(CC) $(CFLAGS) $(SRC)/prg1.c $(IFLAGS)
+	mv *.o $(OBJ)/
+
+sum.o: $(SRC)/sum.c
+	$(CC) $(CFLAGS) $(SRC)/sum.c $(IFLAGS)
+	mv *.o $(OBJ)/
+
+
+multi.o: $(SRC)/multi.c
+	$(CC) $(CFLAGS) $(SRC)/multi.c $(IFLAGS)
+	mv *.o $(OBJ)/
+
+disp.o: ./src/disp.c
+	$(CC) $(CFLAGS) $(SRC)/disp.c $(IFLAGS)
+	mv *.o $(OBJ)/ 	
+
+clean:
+	rm -f $(OBJ)/*
+	rm -f $(BIN)/*
+	@echo "Mission Passed"	

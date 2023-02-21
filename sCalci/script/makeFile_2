@@ -1,0 +1,10 @@
+all: HelloWorld HelloDeepak
+
+HelloWorld:
+	@echo "Hello World"
+
+HelloDeepak:
+	@echo "Hello Hello"
+
+WhatsTime:
+	@date
