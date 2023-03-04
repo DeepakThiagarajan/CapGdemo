@@ -1,0 +1,84 @@
+CC = gcc
+CFLAGS = -Wall -c -g
+LDFLAGS = -o
+
+INC = ./inc/
+SRC = ./src
+OBJ = ./obj
+BIN = ./bin
+
+IFLAGS = -I $(INC)
+
+all: prog1 prog2 prog3 prog4 prog5 prog6 prog7 array2d findPal freqChar
+
+prog1: $(OBJ)/prog1.o
+	$(CC) $(LDFLAGS) $(BIN)/prog1 $(OBJ)/prog1.o
+
+$(OBJ)/prog1.o: $(SRC)/prog1.c
+	$(CC) $(CFLAGS) $(SRC)/prog1.c
+	mv *.o $(OBJ)/
+
+prog2: $(OBJ)/prog2.o
+	$(CC) $(LDFLAGS) $(BIN)/prog2 $(OBJ)/prog2.o
+
+$(OBJ)/prog2.o: $(SRC)/prog2.c
+	$(CC) $(CFLAGS) $(SRC)/prog2.c
+	mv *.o $(OBJ)/
+
+prog3: $(OBJ)/prog3.o
+	$(CC) $(LDFLAGS) $(BIN)/prog3 $(OBJ)/prog3.o
+
+$(OBJ)/prog3.o: $(SRC)/prog3.c
+	$(CC) $(CFLAGS) $(SRC)/prog3.c
+	mv *.o $(OBJ)/
+
+prog4: $(OBJ)/prog4.o
+	$(CC) $(LDFLAGS) $(BIN)/prog4 $(OBJ)/prog4.o
+
+$(OBJ)/prog4.o: $(SRC)/prog4.c
+	$(CC) $(CFLAGS) $(SRC)/prog4.c
+	mv *.o $(OBJ)/
+
+prog5: $(OBJ)/prog5.o
+	$(CC) $(LDFLAGS) $(BIN)/prog5 $(OBJ)/prog5.o
+
+$(OBJ)/prog5.o: $(SRC)/prog5.c
+	$(CC) $(CFLAGS) $(SRC)/prog5.c
+	mv *.o $(OBJ)/
+
+prog6: $(OBJ)/prog6.o
+	$(CC) $(LDFLAGS) $(BIN)/prog6 $(OBJ)/prog6.o
+
+$(OBJ)/prog6.o: $(SRC)/prog6.c
+	$(CC) $(CFLAGS) $(SRC)/prog6.c
+	mv *.o $(OBJ)/
+
+array2d: $(OBJ)/array2d.o
+	$(CC) $(LDFLAGS) $(BIN)/array2d $(OBJ)/array2d.o
+
+$(OBJ)/array2d.o: $(SRC)/array2d.c
+	$(CC) $(CFLAGS) $(SRC)/array2d.c
+	mv *.o $(OBJ)/
+
+findPal: $(OBJ)/findPal.o
+	$(CC) $(LDFLAGS) $(BIN)/findPal $(OBJ)/findPal.o
+
+$(OBJ)/findPal.o: $(SRC)/findPal.c
+	$(CC) $(CFLAGS) $(SRC)/findPal.c
+	mv *.o $(OBJ)/
+
+freqChar: $(OBJ)/freqChar.o
+	$(CC) $(LDFLAGS) $(BIN)/freqChar $(OBJ)/freqChar.o
+
+$(OBJ)/freqChar.o: $(SRC)/freqChar.c
+	$(CC) $(CFLAGS) $(SRC)/freqChar.c
+	mv *.o $(OBJ)/
+
+
+
+
+clean:
+	rm -f $(OBJ)/*
+	rm -f $(BIN)/*
+	@echo "Mission Passed"
+
