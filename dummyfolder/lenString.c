@@ -14,8 +14,9 @@ int main()
 int countLength(char *str) 
 {
     int count = 0;
-    char *ptr;
-    ptr= str;
+	char *ptr;
+	ptr=str;
+
     for (; *ptr != '\n'; ptr++) {
         count++;
     }

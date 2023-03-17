@@ -20,27 +20,18 @@ int main()
 		printf("%d ",arr[i]);
 	printf("\n");
 
-	/*for(i=1;i<n;i+=2){
+	for(i=1;i<n;i+=2){
 		arr[j]=arr[i];
 		j++;
 	}
 	n=j;
-	*/
-	for(i=0;i<n;i++)
-	{
-		for(j=i;j<n-1;j++)
-		{
-			arr[j]=arr[j+1];
-		}
-	}
+	
 	printf("\nModified Array:");
-	for(i=0;/*i<n*/i<n/2 ;i++)
+	for(i=0;i<n;i++)
 	{
 		printf("%d",arr[i]);
 	}
 	printf("\n\n");
 
-	
+	return 0;
 }
-
-
