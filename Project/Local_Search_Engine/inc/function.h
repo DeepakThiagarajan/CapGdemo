@@ -39,7 +39,7 @@ int search = SEARCH_WITH_FILENAME;//act as a flag to search with filename or wor
 
 char filename[MAX_FILENAME];//to take filename
 char input[MAX_LENGTH];//to take string or word
-char path[MAX_PATH_LENGTH] = "/home/";//Deafult path of user directory
+char path[MAX_PATH_LENGTH];//Deafult path of user directory
 
 int fileCount = 0;//file increment counter
 int counter=0;

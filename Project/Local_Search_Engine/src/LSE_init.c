@@ -26,6 +26,7 @@ int main(void)
 {
     int flag = 1;
     char * username = getlogin();
+    strcat(path, "/home2/");
     strcat(path, username);
     strcat(path, "/");
     
@@ -81,9 +82,9 @@ int main(void)
                         flag=1;
                         break;
                 }
-                strcpy(path, "/home/");
-                strcat(path, username);
-                strcat(path, "/");
+               strcpy(path, "/home2/");
+               strcat(path, username);
+               strcat(path, "/");
 
     }while(flag==1);//to recur among the choices 
 
