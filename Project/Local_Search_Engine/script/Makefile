@@ -7,13 +7,13 @@ OBJ = ./obj/
 INC = -I
 HEAD = ./inc/
 
-all:$(BIN)LSE
+all:$(BIN)RSE
 
-$(OBJ)LSE.o:$(SRC)LSE_init.c
-	$(CC) $(CFLAGS) $(SRC)LSE_init.c $(INC) $(HEAD) $(OFLAGS) $(OBJ)LSE.o
+$(OBJ)main.o:$(SRC)main.c
+	$(CC) $(CFLAGS) $(SRC)main.c $(INC) $(HEAD) $(OFLAGS) $(OBJ)main.o
 
-$(BIN)LSE:$(OBJ)LSE.o
-	$(CC) $(OFLAGS) $(BIN)LSE $(OBJ)LSE.o
+$(BIN)RSE:$(OBJ)main.o
+	$(CC) $(OFLAGS) $(BIN)RSE $(OBJ)main.o
 
 clean: 
 	rm $(OBJ)*.o $(BIN)*
