@@ -216,7 +216,7 @@ int printLinkedList(File **ptr){
                 flag = 1;
                 break;
             }  
-        
+       
     } while (flag == 0); 
     }
     else if((mychoice[0]!='n' && mychoice[0]!='N' )||strlen(mychoice)>1)
@@ -335,59 +335,25 @@ int searchLocalSystem(const char * path){
 
 int searchByWord(){
     
-    search = SEARCH_WITH_WORD;
-    int flag = 0;
-
-    printf("Enter search string/word:\n");
+    search = 0;
+    fileCount = 0;
+    int flag = 1;
+    
+    printf("Enter word or str to search:\n");
     fgets(input,MAX_LENGTH, stdin);
     input[strlen(input) - 1] = '\0';
-    LINE
-    printf("Do you want to search at any specific locations?(y/n)\n");
+ 
+    printf("\n");
     
-    char c[MAX_LENGTH];
-    fgets(c, MAX_LENGTH, stdin);
-    c[strlen(c) - 1] = '\0';
-    
-    if(strlen(c) > 1){
-        c[0] = 'k';
-    }  
-
-
-    char userPath[MAX_LENGTH];
-    switch (c[0])
-    {
-        case 'y':
-        case 'Y':
-            flag = 1;
-            printf("Please provide path\n");
-            printf("%s", path);
-            fgets(userPath, 50, stdin);
-            userPath[strlen(userPath) - 1] = '\0';
-            strcat(path, userPath);
-            strcat(path, "/");
-
-            LINE
-            printf("Searching..\n");
-            searchLocalSystem(path);
-            break;
-        
-        case 'n':
-        case 'N':
-            printf("Searching..\n");
-            printf("%s\n", path);
-            flag = 1;
-            searchLocalSystem(path);
-            break;
-        
-        default:
-            fprintf(stderr,"%s","Wrong Choice...!!\n");
-            break;
-    }
+    printf("Searching..\n");
+    printf("%s\n", path);
+    flag = 1;
+    searchLocalSystem(path);
     
     if(flag == 1){
         int res = allocateMemory();
         if(res == EXIT_FAILURE){
-            fileCount = 0;
+            
             fprintf(stderr,"%s","Cannot list files.\n");
         return EXIT_FAILURE;
         }
@@ -398,3 +364,30 @@ int searchByWord(){
     return EXIT_SUCCESS;
 }
 
+int searchByFilename()
+{
+    search=SEARCH_WITH_FILENAME;
+    int flag = 1;
+    printf("Enter filename to be searched:\n");
+    fgets(filename,MAX_LENGTH, stdin);
+    printf("Searching %s\n", filename);
+    LINE
+    filename[strlen(filename) - 1] = '\0';
+    
+   
+    searchLocalSystem(path);
+     
+
+    if(flag == 1){
+        int res = allocateMemory();
+        if(res == EXIT_FAILURE){
+            fprintf(stderr,"%s","Cannot list files.\n");
+            fileCount = 0;
+
+            return EXIT_FAILURE;
+        }
+    }
+    fileCount = 0;
+
+   return EXIT_SUCCESS;
+}

@@ -24,7 +24,7 @@ int main()
         }
         printf("\n");
                 printf("1. Search by word/sentence\n");
-                //printf("2. Search by filename\n");
+                printf("2. Search by filename\n");
                 //printf("3. Open file with absolute path\n");
                 printf("4. Quit\n");
                 LINE
@@ -49,14 +49,14 @@ int main()
                         searchByWord();
                         break;
                     
-                    /*case '2':
+                    case '2':
                         
                         searchByFilename();
                         break;
 
-                    case '3':
+                   /* case '3':
                        
-                        openWithAbsolutePath();
+                       openWithAbsolutePath();
                         break;
                     */
                     case '4':
