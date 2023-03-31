@@ -26,5 +26,3 @@ clean:
 	
 
 
-// clean: 
-//	rm $(OBJ)*.o $(BIN)*
