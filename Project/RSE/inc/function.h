@@ -21,6 +21,16 @@
 #define SEARCH_WITH_FILENAME 1
 #define LINE for(int i = 0;i < 100;i++) printf("-");printf("\n");
 
+
+typedef struct struct_File{
+    char f_name[MAX_LENGTH];
+    char f_path[MAX_PATH_LENGTH];
+    struct struct_File* next;
+}File;
+
+File *head = NULL;//structure pointer 
+File *curr = NULL;//structure pointer
+
 /************************************************************************************
 **    FUNCTION  DECLARATIONS
 **
@@ -47,13 +57,5 @@ char path[MAX_PATH_LENGTH];//Deafult path of user directory
 int fileCount = 0;//file increment counter
 int counter=0;
 
-typedef struct struct_File{
-    char f_name[MAX_LENGTH];
-    char f_path[MAX_PATH_LENGTH];
-    struct struct_File* next;
-}File;
-
-File *head = NULL;//structure pointer 
-File *curr = NULL;//structure pointer
 
 #endif 
