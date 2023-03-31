@@ -1,19 +1,30 @@
 CC = gcc
-CFLAGS = -Wall -c -g -std=c99 
-OFLAGS = -o
+CFLAGS = -Wall -c -g
+LDFLAGS = -o
+
 BIN = ./bin/
 SRC = ./src/
 OBJ = ./obj/
-INC = -I
-HEAD = ./inc/
+INC = ./inc/
 
-all:$(BIN)RSE
+IFLAGS = -I $(INC)
 
-$(OBJ)main.o:$(SRC)main.c
-	$(CC) $(CFLAGS) $(SRC)main.c $(INC) $(HEAD) $(OFLAGS) $(OBJ)main.o
+all: project
 
-$(BIN)RSE:$(OBJ)main.o
-	$(CC) $(OFLAGS) $(BIN)RSE $(OBJ)main.o
+project:$(OBJ)/main.o
+	$(CC) $(LDFLAGS) $(BIN)/rse $(OBJ)/main.o
 
-clean: 
-	rm $(OBJ)*.o $(BIN)*
+$(OBJ)/main.o: $(SRC)/main.c
+	$(CC) $(CFLAGS) $(SRC)/main.c $(IFLAGS)
+	mv *.o $(OBJ)/
+
+
+clean:
+	rm -f $(OBJ)/*
+	rm -f $(BIN)/*
+	@echo "Cleaning Done!"
+	
+
+
+// clean: 
+//	rm $(OBJ)*.o $(BIN)*
