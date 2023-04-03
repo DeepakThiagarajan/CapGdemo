@@ -7,6 +7,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <dirent.h>
+#include "server_function.c"
 
 #define MAXBUFF 100000
 #define MAXCMD 100000
@@ -38,7 +39,7 @@ int main()
 
     serv_address.sin_family = AF_INET;
     serv_address.sin_port = htons(PORTNO);
-    serv_address.sin_addr.s_addr = inet_addr("127.0.0.2");
+    serv_address.sin_addr.s_addr = inet_addr("127.0.0.3");
 
     retValue = bind(sfd, (struct sockaddr *)&serv_address, sizeof(serv_address));
     if (retValue < 0)
@@ -67,61 +68,13 @@ int main()
             exit(EXIT_FAILURE);
         }
         printf("\nServer: Client got a connection\n");
- 	char choice[MAXBUFF];
-
-	read(csfd,choice,MAXBUFF);
-	switch(choice[0])
-	{	
-	case '1':
-		printf("\nServer : Client will request to search for a word/char in RSE\n");
-        	memset(msg, '\0', MAXBUFF);
-        	read(csfd, msg, MAXBUFF);
-        	read(csfd, path, MAXBUFF);
-        	sprintf(command, "grep -r %s --include=*.c --include=*.txt %s",msg,path);
-			
-        	FILE *fp = popen(command, "r");
-        	if (!fp)
-        	{
-            		perror("popen()");
-            		exit(EXIT_FAILURE);
-        	}
-        	char content[MAXBUFF];
-        	while (fgets(content, MAXBUFF, fp) != NULL)
-        	{ 
-           		write(csfd, content, strlen(content));
-//		printf("%s",content);
-        	}
-        	pclose(fp);
-		break;
-  //      close(csfd);
-	
-	case '2':
+ 	read(csfd, msg, MAXBUFF);
+ 	read(csfd, path, MAXBUFF);
  	
-		printf("Server : Client will ask for file name to be searched in RSE\n");
-		memset(msg,'\0',MAXBUFF);
-		read(csfd,msg,MAXBUFF);
-		char path1[MAXBUFF] = "/home2/trainee46/";
-		sprintf(command,"find %s -name %s -type f",path1,msg);
-		FILE *fp2 = popen(command,"r");
-		if(!fp2)
-		{
-			perror("popen()");
-			exit(EXIT_FAILURE);
-		}
-		char content2[MAXBUFF];
-		while(fgets(content2,MAXBUFF,fp2)!= NULL)
-		{
-			write(csfd, content2, strlen(content2));
-		}	
-		pclose(fp2);
-		break;
-	 case '3':
-		break;
-	
-	 default:
-		printf("Invalid choice");
-		break;
-	}
+ 	if (search_files(path, msg) == EXIT_FAILURE) {
+        fprintf(stderr, "Search failed\n");
+        exit(EXIT_FAILURE);
+       } 
 //        printf("Server: Client sent a msg: %s\n", msg);
     }
 //    close(sfd);
