@@ -6,20 +6,23 @@
 #define MAX_PATH_LENGTH 256
 #define MAX_LENGTH 1024
 
-int search_files(char *dir_path, char *search_term) {
+int search_files(char *dir_path, char *search_term, char *result) {
     DIR *dir = opendir(dir_path);
     if (dir == NULL) {
         fprintf(stderr, "Failed to open directory '%s'\n", dir_path);
         return EXIT_FAILURE;
     }
 
+    char path[MAX_PATH_LENGTH];
+    strncpy(path, dir_path, MAX_PATH_LENGTH);
+    strncat(path, "/", MAX_PATH_LENGTH - strlen(path) - 1);
+
     struct dirent *entry;
     while ((entry = readdir(dir)) != NULL) {
-        char path[MAX_PATH_LENGTH];
-        snprintf(path, MAX_PATH_LENGTH, "%s/%s", dir_path, entry->d_name);
+        strncat(path, entry->d_name, MAX_PATH_LENGTH - strlen(path) - 1);
 
         if (entry->d_type == DT_DIR && strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) {
-            search_files(path, search_term);
+            search_files(path, search_term, result);
         }
         else if (entry->d_type == DT_REG) {
             FILE *file = fopen(path, "r");
@@ -39,13 +42,16 @@ int search_files(char *dir_path, char *search_term) {
 
             if (match_found) {
                 printf("Match found in file: %s\n", path);
+                strcat(result, path);
+                strcat(result, "\n");
             }
 
             fclose(file);
         }
+
+        path[strlen(dir_path) + 1] = '\0';
     }
 
     closedir(dir);
     return EXIT_SUCCESS;
 }
-

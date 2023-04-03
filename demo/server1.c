@@ -16,13 +16,13 @@
 int main()
 {
     int sfd = 0, retValue = 0, csfd = 0;
-    int clientAddlen = 0;
+    unsigned int clientAddlen = 0;
 
     struct sockaddr_in serv_address, client_address;
 
     char msg[MAXBUFF] = {0,};
     char path[MAXBUFF] = {0,};
-    char command[MAXCMD];
+    char command[MAXCMD]={0,};
 
     sfd = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -39,7 +39,7 @@ int main()
 
     serv_address.sin_family = AF_INET;
     serv_address.sin_port = htons(PORTNO);
-    serv_address.sin_addr.s_addr = inet_addr("127.0.0.3");
+    serv_address.sin_addr.s_addr = inet_addr("127.0.0.4");
 
     retValue = bind(sfd, (struct sockaddr *)&serv_address, sizeof(serv_address));
     if (retValue < 0)
@@ -60,23 +60,27 @@ int main()
 
     while (1)
     {
-        csfd = accept(sfd, (struct sockaddr *)&client_address, &clientAddlen);
+	csfd = accept(sfd, (struct sockaddr *)&client_address, &clientAddlen);
+	if (csfd < 0)
+    	{
+        	perror("accept() ");
+        	exit(EXIT_FAILURE);
+    	}
+   	printf("\nServer: Client got a connection\n");
+    	read(csfd, msg, MAXBUFF);
+    	read(csfd, path, MAXBUFF);
 
-        if (csfd < 0)
-        {
-            perror("accept() ");
-            exit(EXIT_FAILURE);
-        }
-        printf("\nServer: Client got a connection\n");
- 	read(csfd, msg, MAXBUFF);
- 	read(csfd, path, MAXBUFF);
- 	
- 	if (search_files(path, msg) == EXIT_FAILURE) {
-        fprintf(stderr, "Search failed\n");
-        exit(EXIT_FAILURE);
-       } 
-//        printf("Server: Client sent a msg: %s\n", msg);
-    }
+    // perform search and store results in a buffer
+    	char result[MAXBUFF] = {0,};
+    	if (search_files(path, msg, result) == EXIT_FAILURE)
+	{
+        	fprintf(stderr, "Search failed\n");
+        	exit(EXIT_FAILURE);
+    	}
+
+    // send results back to the client
+    	write(csfd, result, strlen(result) + 1);
+     }
 //    close(sfd);
 
     return 0;
