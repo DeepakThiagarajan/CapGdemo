@@ -11,14 +11,14 @@
 void search_for_word(const char *path, const char *word) {
     FILE *output_file;
     char output_filename[MAX_PATH_LENGTH];
-    char grep_command[MAX_PATH_LENGTH + 15]; // 15 is the length of "grep -r '' > "
+    char grep_command[MAX_PATH_LENGTH]; 
     sprintf(output_filename, "%s/file.txt", path);
     output_file = fopen(output_filename, "w");
     if (output_file == NULL) {
         fprintf(stderr, "Error: Could not open file %s for writing\n", output_filename);
         exit(1);
     }
-    sprintf(grep_command, "grep -r  \"%s\" %s", word, path);
+    sprintf(grep_command, "find %s -type f -exec grep -l %s {} \\; ", path, word);
     FILE *grep_output = popen(grep_command, "r");
     if (grep_output == NULL) {
         fprintf(stderr, "Error: Could not run grep command\n");
@@ -46,7 +46,7 @@ void display_tokens() {
     int num_tokens = 0;
 
     while (fgets(line, MAX_LINE_LENGTH, fp) != NULL) {
-        char *token = strtok(line, ":");
+        char *token = strtok(line, " ");
         if (token == NULL) {
             continue;
         }
@@ -63,25 +63,29 @@ void display_tokens() {
 
     // Display the tokens
     for (int i = 0; i < num_tokens; i++) {
-        printf("%d. %s\n", i+1, tokens[i]);
+        printf("%d. %s\n", i, tokens[i]);
     }
 
     // Prompt the user to select a file to display its contents
     int choice;
-    printf("Enter the number of the file to display its contents (0 to exit): ");
+    printf("Enter the number of the file to display its contents: ");
     scanf("%d", &choice);
 
-    if (choice >= 1 && choice <= num_tokens) {
-        FILE *file = fopen(tokens[choice-1], "r");
+    if (choice >= 0 && choice <= num_tokens) {
+        FILE *file = fopen(tokens[choice], "r");
         if (file == NULL) {
-            printf("Error opening file: %s\n", tokens[choice-1]);
+            printf("Error opening file: %s\n", tokens[choice]);
         } else {
-            printf("Contents of file: %s\n", tokens[choice-1]);
+            printf("Contents of file: %s\n", tokens[choice]);
             while (fgets(line, MAX_LINE_LENGTH, file) != NULL) {
                 printf("%s", line);
             }
             fclose(file);
         }
+    }
+    else
+    {
+	printf("Invalid Choice");
     }
 }
 // Function to recursively search for directories and files
