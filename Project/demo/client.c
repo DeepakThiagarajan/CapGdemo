@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -6,6 +5,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include <stdio.h>
 
 #define MAXBUFF 100000
 #define PORTNO 5449
@@ -46,85 +46,18 @@ int main()
     }
     printf("\nClient: Connected to the server\n");
     
-    char ch[MAXLEN];
-    printf("\n -----------------------------------------------------------\n");
-    printf("\nSelect an option\n 1 - to search a word/string\n 2 - to search a filename\n3 - EXIT");
-    scanf("%s",ch);
-    getchar();
-    if(strlen(ch) > 1){
-	ch[0] = '7';
-    }
-    write(sfd,ch,strlen(ch));
-    printf("\n -----------------------------------------------------------\n");
-    //switch case 
-    switch(ch[0])
-    {
-	case '1':
-		 // Request the server to search for a file
-		 printf("\nEnter the word/char to search \n");
-		 scanf("%s", msg);
-		 write(sfd, msg, strlen(msg));
-    
-    	printf("\n -----------------------------------------------------------\n");
-        printf("Any specific path(y for 1/n for 2) \n");
-        scanf("%d", &c);
-        char userpath[MAXLEN];
-    
-        switch(c)
-        {
-            case 1:
-                
-                printf("The Base Path Name");
-	    	printf("%s\n", path);
-                printf("Enter the path\n");
-            	scanf("%s",userpath);
-            	userpath[strlen(userpath)-1] = '\0';
-            	strcat(path, userpath);
-           	strcat(path, "/");
-            	printf("Searching with abspath ..\n");
-            	write(sfd, path, 1000);
-            	break;
+   	printf("\nEnter the word: ");
+	scanf("%s",msg); 
+	write(sfd,msg,MAXBUFF);
+	bzero(msg,MAXBUFF);
 
-            case 2:
-
-            	printf("The Base Path Name");
-            	printf("%s\n", path);
-            	printf("Searching wih base path ..\n");
-            	write(sfd, path, 1000);
-            	break;
-            	
-            default:
-
-            	fprintf(stderr, "Invalid Choice !!\n");
-            	break;
-    	}
-    
-    	read(sfd, buf, MAXBUFF);
-    	printf("\n%s", buf);
-	break;
-    
-    case '2':
-			
-	printf("\n -----------------------------------------------------------\n");
-    	printf("\n Enter the file name to be searched \n");
-        scanf("%s",msg);
-    	printf("\n -----------------------------------------------------------\n");
-        write(sfd,msg,strlen(msg));
-
-        memset(buf,'\0',MAXBUFF); 
-        read(sfd,buf,MAXBUFF); 
-        printf("/n%s",buf);
-        break;
-    
-    case '3':
+	printf("\nEnter the path: ");
+	scanf("%s",msg);
+	write(sfd,msg,MAXBUFF);
+	bzero(msg,MAXBUFF);
 	
-	printf("Exiting the Client Connection\n");
-	break;
-
-    default:
-		
-        printf("Invalid!!!\n");
-	break;
+    	read(sfd, msg, MAXBUFF);   //tokenized content
+    	printf("\n%s", msg);
                    
                      
     }

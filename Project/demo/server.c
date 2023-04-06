@@ -7,6 +7,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <dirent.h>
+#include "functions.c"
 
 #define MAXBUFF 100000
 #define MAXCMD 100000
@@ -67,64 +68,31 @@ int main()
             exit(EXIT_FAILURE);
         }
         printf("\nServer: Client got a connection\n");
- 	char choice[MAXBUFF];
-
-	read(csfd,choice,MAXBUFF);
-	switch(choice[0])
-	{	
-	case '1':
-		printf("\nServer : Client will request to search for a word/char in RSE\n");
+		
         	memset(msg, '\0', MAXBUFF);
         	read(csfd, msg, MAXBUFF);
-        	read(csfd, path, MAXBUFF);
-        	sprintf(command, "grep -r %s --include=*.c --include=*.txt %s",msg,path);
+		char word[MAXBUFF] = msg;
+		bzero(msg,MAXBUFF);
+        	read(csfd,msg, MAXBUFF);
+		char path[MAXBUFF] = msg;
+		
+		bzero(msg,MAXBUFF);		
+		msg = search(path,word);
+		write(csfd,msg,strlen(msg));
+	
+		char sorf[MAXBUFF] = read(csfd,msg,strlen(msg));
+		if(strcmp(sorf,"SUCCESS")== 0)
+		{	
+			msg = disp1();
+			write(csfd,msg,strlen(msg));
+			read(csfd,msg,strlen(msg));
 			
-        	FILE *fp = popen(command, "r");
-        	if (!fp)
-        	{
-            		perror("popen()");
-            		exit(EXIT_FAILURE);
-        	}
-        	char content[MAXBUFF];
-        	while (fgets(content, MAXBUFF, fp) != NULL)
-        	{ 
-           		write(csfd, content, strlen(content));
-//		printf("%s",content);
-        	}
-        	pclose(fp);
-		break;
-  //      close(csfd);
-	
-	case '2':
- 	
-		printf("Server : Client will ask for file name to be searched in RSE\n");
-		memset(msg,'\0',MAXBUFF);
-		read(csfd,msg,MAXBUFF);
-		char path1[MAXBUFF] = "/home2/trainee46/";
-		sprintf(command,"find %s -name %s -type f",path1,msg);
-		FILE *fp2 = popen(command,"r");
-		if(!fp2)
-		{
-			perror("popen()");
-			exit(EXIT_FAILURE);
+			msg = disp2();
+			write(csfd,msg,strlen(msg));
 		}
-		char content2[MAXBUFF];
-		while(fgets(content2,MAXBUFF,fp2)!= NULL)
-		{
-			write(csfd, content2, strlen(content2));
-		}	
-		pclose(fp2);
-		break;
-	 case '3':
-		break;
-	
-	 default:
-		printf("Invalid choice");
-		break;
-	}
-//        printf("Server: Client sent a msg: %s\n", msg);
-    }
-//    close(sfd);
+		
+	}				
+    close(sfd);
 
     return 0;
 }
