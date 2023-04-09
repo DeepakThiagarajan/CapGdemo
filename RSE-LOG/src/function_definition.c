@@ -1,4 +1,7 @@
 #include <function.h>
+#include<log.h>
+
+
 /************************************************************************************
 **     FUNCTION NAME     :     isFile
 **
@@ -40,6 +43,7 @@ char *extractFileName(char * path){
     char * prev = (char * ) malloc(MAX_LENGTH * sizeof(char));
     if(prev==NULL)
     {
+	log_fatal("Memory Aloocation Failed!!\n");
         return "Memory Allocation Failed!!\n";
     }
 
@@ -69,7 +73,7 @@ int createFileNode(char *path){
         head = (File *) malloc(sizeof(File));
         if(head==NULL)
         {
-            fprintf(stderr,"%s","Memory Allocation Failed...!!\n");
+            log_fatal("Memory Allocation Failed...!!\n");
             return EXIT_FAILURE;
         }
         strcpy(head->f_path, copyPath);
@@ -84,7 +88,7 @@ int createFileNode(char *path){
         curr->next = (File *) malloc(sizeof(File));
         if(curr->next==NULL)
         {
-            fprintf(stderr,"%s","Memory Allocation Failed...!!\n");
+            log_fatal("Memory Allocation Failed...!!\n");
             return EXIT_FAILURE;
         }
         curr = curr->next;
@@ -151,14 +155,14 @@ int searchInFile(char *path){
 int openFile(char * fpath){
     FILE * fptr = fopen(fpath, "r");
     if(fptr == NULL){
-        fprintf(stderr,"%s","File not Found...!!\n");
+        log_fatal("\nFile not Found...!!\n");
         if(fptr){
             fclose(fptr);
         }
         return EXIT_FAILURE;
     }
     if(isFile(fpath) == 0){
-        fprintf(stderr,"%s","Given path is a directory...!!\n");
+        log_warn("\nGiven path is a directory...!!\n");
 
         if(fptr){
             fclose(fptr);
@@ -167,7 +171,7 @@ int openFile(char * fpath){
         return EXIT_FAILURE;
     }
     
-    printf("File opened!\n\n");
+    log_info("File opened!\n\n");
     LINE
     char c = fgetc(fptr);
     while (c != EOF)
@@ -190,10 +194,9 @@ int openFile(char * fpath){
 **
 **
 ************************************************************************************/
-
 int printLinkedList(File **ptr){
     if(fileCount == 0 || ptr==NULL){
-        fprintf(stderr,"%s","No files Found...!!\n");
+        log_fatal("No files Found...!!\n");
         return EXIT_FAILURE;
     }
 
@@ -205,40 +208,25 @@ int printLinkedList(File **ptr){
     getchar();
     if(mychoice[0]=='y'||mychoice[0]=='Y')
     {
-    
-    do
-    {   
-        printf("\n%d file(s) found\n\n", fileCount);
-        LINE
-            
+        do
+        {   
+            log_debug("\n%d file(s) found\n\n", fileCount);
+            LINE
+                
             printf("Select the file number which you want to open\n");
-            char option[MAX_LENGTH];
-            int myflag = 0;
             int num = 0;
             do
             {
                 printf("Please enter file index number\n");
+                char option[MAX_LENGTH];
                 scanf("%s", option);
                 getchar();
-                myflag=0;
-                num=0;
-                for(int i=0;option[i]!='\0';i++)
+                num = atoi(option);
+                if(num < 0 || num > fileCount-1)
                 {
-                    if(isdigit(option[i])==0)
-                    {
-                        myflag=1;
-                        break;
-                    }
-                    else
-                    {
-                        num=num*10+(option[i]-48);
-                    }
+                    log_fatal("File index does not exist...!!\n");
                 }
-                if(myflag==1||num<0||num>fileCount-1)
-                    fprintf(stderr,"%s","File index does not exist...!!\n");
-
-
-            } while (num < 0 || num > fileCount-1||myflag==1);
+            } while (num < 0 || num > fileCount-1);
 
             File *tmp = *(ptr+num);
             LINE
@@ -264,16 +252,16 @@ int printLinkedList(File **ptr){
                 flag = 1;
                 break;
             default:
-                fprintf(stderr,"%s","Invalid Choice...!!\n");
+               	log_warn("Invalid Choice...!!\n");
                 flag = 1;
                 break;
             }  
-        
-    } while (flag == 0); 
+            
+        } while (flag == 0); 
     }
     else if((mychoice[0]!='n' && mychoice[0]!='N' )||strlen(mychoice)>1)
     {
-        fprintf(stderr,"%s","Invalid choice!!\n");
+        log_warn("Invalid choice!!\n");
     }
 
     return EXIT_SUCCESS;
@@ -459,20 +447,20 @@ int searchByWord(){
             strcat(pathcopy, "/");
 
             LINE
-            printf("Searching..\n");
+            log_info("Searching..\n");
             searchLocalSystem(pathcopy);
             break;
         
         case 'n':
         case 'N':
-            printf("Searching..\n");
+            log_info("Searching..\n");
             printf("%s\n", path);
             flag = 1;
             searchLocalSystem(path);
             break;
         
         default:
-            fprintf(stderr,"%s","Wrong Choice...!!\n");
+            log_warn("Wrong Choice...!!\n");
             break;
     }
     
@@ -480,7 +468,7 @@ int searchByWord(){
         int res = allocateMemory();
         if(res == EXIT_FAILURE){
             fileCount = 0;
-            fprintf(stderr,"%s","Cannot list files.\n");
+            log_warn("Cannot list files.\n");
         return EXIT_FAILURE;
         }
     }
@@ -505,7 +493,7 @@ int searchByFilename(){
     int flag = 0;
     printf("Enter filename to be searched:\n");
     fgets(filename,MAX_LENGTH, stdin);
-    printf("Searching %s\n", filename);
+    log_info("Searching %s\n", filename);
     LINE
     filename[strlen(filename) - 1] = '\0';
     
@@ -534,7 +522,7 @@ int searchByFilename(){
             strcat(pathcopy, "/");
             printf("\n");
             LINE
-            searchLocalSystem(pathcopy);
+            searchLocalSystem(path);
 
             break;
 
@@ -544,14 +532,14 @@ int searchByFilename(){
             searchLocalSystem(path);
             break;
         default:
-             fprintf(stderr,"%s","Innvalid Choice.\n");
+             log_warn("Invalid Choice.\n");
             break;
     }    
 
     if(flag == 1){
         int res = allocateMemory();
         if(res == EXIT_FAILURE){
-            fprintf(stderr,"%s","Cannot list files.\n");
+            log_warn("Cannot list files.\n");
             fileCount = 0;
 
             return EXIT_FAILURE;
