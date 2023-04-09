@@ -14,10 +14,8 @@
 int main()
 {
     int sfd = 0, retValue = 0;
-    int clientAddlen = 0;
     struct sockaddr_in serv_address;
     char *msg = (char *)malloc(MAX_LENGTH);
-    char *result = (char *)malloc(MAX_LENGTH);
     char ch[MAX];
     
 
@@ -63,7 +61,6 @@ int main()
     
     
     read(sfd,msg,MAX_LENGTH);   //tokenized content
-    printf("\nThe Contents of the file are .....\n");
     printf("\n%s\n",msg);
     free(msg);
                    

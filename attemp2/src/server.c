@@ -17,9 +17,9 @@ char * openAbsolutePath(char * );
 int main()
 {
     int sfd = 0, retValue = 0, csfd = 0;
-    int clientAddlen = 0;
-
+    
     struct sockaddr_in serv_address, client_address;
+    socklen_t clientAddlen = sizeof(client_address);
 
     char msg[MAX];
     char path[MAX];
@@ -101,7 +101,6 @@ char * openAbsolutePath(char * fpath) {
     while (fgets(line, MAX_LENGTH, fptr) != NULL) {
         
             strcat(buffer, line);
-   //         printf("\n%s\n",buffer);
             n += strlen(line);
     }
     
