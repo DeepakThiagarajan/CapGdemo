@@ -1,0 +1,1072 @@
+/home2/trainee46/base/.git/info/exclude:# exclude patterns (uncomment them if you want to use them):
+/home2/trainee46/base/.git/hooks/update.sample:# hooks.allowmodifytag
+/home2/trainee46/base/.git/hooks/update.sample:#   This boolean sets whether a tag may be modified after creation. By default
+/home2/trainee46/base/.git/hooks/update.sample:if [ -z "$GIT_DIR" ]; then
+/home2/trainee46/base/.git/hooks/update.sample:	echo " (if you want, you could supply GIT_DIR then run" >&2
+/home2/trainee46/base/.git/hooks/update.sample:if [ -z "$refname" -o -z "$oldrev" -o -z "$newrev" ]; then
+/home2/trainee46/base/.git/hooks/update.sample:allowmodifytag=$(git config --bool hooks.allowmodifytag)
+/home2/trainee46/base/.git/hooks/update.sample:# if $newrev is 0000...0000, it's a commit to delete a ref.
+/home2/trainee46/base/.git/hooks/update.sample:if [ "$newrev" = "$zero" ]; then
+/home2/trainee46/base/.git/hooks/update.sample:		if [ "$allowunannotated" != "true" ]; then
+/home2/trainee46/base/.git/hooks/update.sample:		if [ "$allowdeletetag" != "true" ]; then
+/home2/trainee46/base/.git/hooks/update.sample:		if [ "$allowmodifytag" != "true" ] && git rev-parse $refname > /dev/null 2>&1
+/home2/trainee46/base/.git/hooks/update.sample:			echo "*** Modifying a tag is not allowed in this repository." >&2
+/home2/trainee46/base/.git/hooks/update.sample:		if [ "$oldrev" = "$zero" -a "$denycreatebranch" = "true" ]; then
+/home2/trainee46/base/.git/hooks/update.sample:		if [ "$allowdeletebranch" != "true" ]; then
+/home2/trainee46/base/.git/hooks/update.sample:		if [ "$allowdeletebranch" != "true" ]; then
+/home2/trainee46/base/.git/hooks/pre-commit.sample:# An example hook script to verify what is about to be committed.
+/home2/trainee46/base/.git/hooks/pre-commit.sample:# exit with non-zero status after issuing an appropriate message if
+/home2/trainee46/base/.git/hooks/pre-commit.sample:if git rev-parse --verify HEAD >/dev/null 2>&1
+/home2/trainee46/base/.git/hooks/pre-commit.sample:	# Initial commit: diff against an empty tree object
+/home2/trainee46/base/.git/hooks/pre-commit.sample:if [ "$allownonascii" != "true" ] &&
+/home2/trainee46/base/.git/hooks/pre-commit.sample:	test $(git diff --cached --name-only --diff-filter=A -z $against |
+/home2/trainee46/base/.git/hooks/pre-commit.sample:This can cause problems if you want to work with people on other platforms.
+/home2/trainee46/base/.git/hooks/pre-commit.sample:exec git diff-index --check --cached $against --
+/home2/trainee46/base/.git/hooks/pre-push.sample:# An example hook script to verify what is about to be pushed.  Called by "git
+/home2/trainee46/base/.git/hooks/pre-push.sample:	if [ "$local_sha" = $z40 ]
+/home2/trainee46/base/.git/hooks/pre-push.sample:		if [ "$remote_sha" = $z40 ]
+/home2/trainee46/base/.git/hooks/pre-push.sample:		if [ -n "$commit" ]
+/home2/trainee46/base/.git/hooks/commit-msg.sample:# status after issuing an appropriate message if it wants to stop the
+/home2/trainee46/base/.git/hooks/fsmonitor-watchman.sample:# new and modified files.
+/home2/trainee46/base/.git/hooks/fsmonitor-watchman.sample:# modified since the given time. Paths must be relative to the root of
+/home2/trainee46/base/.git/hooks/fsmonitor-watchman.sample:if ($version == 1) {
+/home2/trainee46/base/.git/hooks/fsmonitor-watchman.sample:if ($^O =~ 'msys' || $^O =~ 'cygwin') {
+/home2/trainee46/base/.git/hooks/fsmonitor-watchman.sample:	    "Falling back to scanning...\n" if $response eq "";
+/home2/trainee46/base/.git/hooks/fsmonitor-watchman.sample:	if ($retry > 0 and $o->{error} and $o->{error} =~ m/unable to resolve root .* directory (.*) is not watched/) {
+/home2/trainee46/base/.git/hooks/fsmonitor-watchman.sample:		    "Falling back to scanning...\n" if $? != 0;
+/home2/trainee46/base/.git/hooks/fsmonitor-watchman.sample:	    "Falling back to scanning...\n" if $o->{error};
+/home2/trainee46/base/.git/hooks/applypatch-msg.sample:# appropriate message if it wants to stop the commit.  The hook is
+/home2/trainee46/base/.git/hooks/pre-rebase.sample:if test "$#" = 2
+/home2/trainee46/base/.git/hooks/pre-rebase.sample:if test -z "$not_in_master"
+/home2/trainee46/base/.git/hooks/pre-rebase.sample:if test "$only_next_1" = "$only_next_2"
+/home2/trainee46/base/.git/hooks/pre-rebase.sample:	if test -z "$not_in_topic"
+/home2/trainee46/base/.git/hooks/pre-rebase.sample:			if (!exists $not_in_next{$elem->[0]}) {
+/home2/trainee46/base/.git/hooks/pre-rebase.sample:				if ($msg) {
+/home2/trainee46/base/.git/hooks/pre-rebase.sample:(1) ... if a topic branch has ever been merged to "next".  Young
+/home2/trainee46/base/.git/hooks/pre-rebase.sample:(2) ... if a topic branch has been fully merged to "master".
+/home2/trainee46/base/.git/hooks/pre-rebase.sample:    "master", so if you need further changes, it is better to
+/home2/trainee46/base/.git/hooks/pre-rebase.sample:	if these match, topic has not merged in next at all.
+/home2/trainee46/base/.git/hooks/pre-rebase.sample:	if this is empty, it is fully merged to "master".
+/home2/trainee46/base/.git/hooks/pre-receive.sample:if test -n "$GIT_PUSH_OPTION_COUNT"
+/home2/trainee46/base/.git/hooks/prepare-commit-msg.sample:# The second includes the output of "git diff --name-status -r"
+/home2/trainee46/base/.git/hooks/prepare-commit-msg.sample:#       print "\n" . `git diff --cached --name-status -r`
+/home2/trainee46/base/.git/hooks/prepare-commit-msg.sample:# 	 if /^#/ && $first++ == 0' "$COMMIT_MSG_FILE" ;;
+/home2/trainee46/base/.git/hooks/prepare-commit-msg.sample:# if test -z "$COMMIT_SOURCE"
+/home2/trainee46/base/.git/hooks/prepare-commit-msg.sample:#   /usr/bin/perl -i.bak -pe 'print "\n" if !$first_line++' "$COMMIT_MSG_FILE"
+/home2/trainee46/base/.git/hooks/pre-applypatch.sample:# An example hook script to verify what is about to be committed
+/home2/trainee46/base/.git/hooks/pre-applypatch.sample:# appropriate message if it wants to stop the commit.
+/home2/trainee46/base/try/src/server.c:    if ((dir = opendir(path)) != NULL) {
+/home2/trainee46/base/try/src/server.c:            if (ent->d_type == DT_REG) {
+/home2/trainee46/base/try/src/server.c:                if (fp == NULL) {
+/home2/trainee46/base/try/src/server.c:                    if (strstr(line, search_term) != NULL) {
+/home2/trainee46/base/try/src/server.c:    if (strlen(result) == 0) {
+/home2/trainee46/base/try/src/server.c://     if ((dir = opendir(path)) != NULL) {
+/home2/trainee46/base/try/src/server.c://             if (ent->d_type == DT_REG && strcmp(ent->d_name, filename) == 0) {
+/home2/trainee46/base/try/src/server.c://        if (strlen(result) == 0) {
+/home2/trainee46/base/try/src/server.c:    if (argc != 2) {
+/home2/trainee46/base/try/src/server.c:    if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) == 0) {
+/home2/trainee46/base/try/src/server.c:    if (setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &(int){1}, sizeof(int)) < 0) {
+/home2/trainee46/base/try/src/server.c:    if (bind(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr)) < 0) {
+/home2/trainee46/base/try/src/server.c:    if (listen(sockfd, 5) < 0) {
+/home2/trainee46/base/try/src/server.c:        if ((new_socket = accept(sockfd, (struct sockaddr *)&cliaddr, (socklen_t *)&len)) < 0) {
+/home2/trainee46/base/try/src/server.c:        if (strcmp(command, "search-term") == 0) {
+/home2/trainee46/base/try/src/server.c:	/*else if (strcmp(command, "search-file") == 0) {
+/home2/trainee46/base/try/src/client.c:    if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+/home2/trainee46/base/try/src/client.c:    if (inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr) <= 0) {
+/home2/trainee46/base/try/src/client.c:    if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
+/home2/trainee46/base/try/valclient:==9007== --pid is optional if only one valgrind process is running
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edca50 (libc.so.6:memmove) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edbd60 (libc.so.6:strncpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edcd30 (libc.so.6:strcasecmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edb7b0 (libc.so.6:strcat) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edbd90 (libc.so.6:rindex) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4ede480 (libc.so.6:rawmemchr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edcbc0 (libc.so.6:mempcpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edc9f0 (libc.so.6:bcmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edbd20 (libc.so.6:strncmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edb820 (libc.so.6:strcmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edcb20 (libc.so.6:memset) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4ef9db0 (libc.so.6:wcschr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edbcc0 (libc.so.6:strnlen) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edb890 (libc.so.6:strcspn) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edcd80 (libc.so.6:strncasecmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edb860 (libc.so.6:strcpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edcec0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edbdc0 (libc.so.6:strpbrk) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edb7e0 (libc.so.6:index) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edbc90 (libc.so.6:strlen) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4ee6380 (libc.so.6:memrchr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edcdd0 (libc.so.6:strcasecmp_l) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edc9c0 (libc.so.6:memchr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4efab70 (libc.so.6:wcslen) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edc070 (libc.so.6:strspn) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edcd00 (libc.so.6:stpncpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edccd0 (libc.so.6:stpcpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4ede4b0 (libc.so.6:strchrnul) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edce20 (libc.so.6:strncasecmp_l) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/valclient:--9007-- REDIR: 0x4edc900 (libc.so.6:strstr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(directory != NULL)
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(errno == ENOTDIR)
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(prev==NULL)
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(head == NULL){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:        if(head==NULL)
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:        if(curr->next==NULL)
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if( access( path, F_OK ) != 0) {
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(f == NULL){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:        if(strstr(temp, input) != NULL){ //Match found
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:            if(res == EXIT_FAILURE){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(f){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(fptr == NULL){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:        if(fptr){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(isFile(fpath) == 0){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:        if(fptr){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(fileCount == 0 || ptr==NULL){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(mychoice[0]=='y'||mychoice[0]=='Y')
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:                    if(isdigit(option[i])==0)
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:                if(myflag==1||num<0||num>fileCount-1)
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:            if(strlen(ch) > 1){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    else if((mychoice[0]!='n' && mychoice[0]!='N' )||strlen(mychoice)>1)
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(ptr == NULL){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:        if(*(ptr+i) != NULL){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(ptr != NULL){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(ptr == NULL){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(head != NULL){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(res == EXIT_FAILURE){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if (d)
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:            if(strcmp(dir->d_name, ".") == 0 ||
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:            if(isFile(currPath) == 0){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:                if(strstr(dir->d_name,".txt")==NULL
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:                if(search == SEARCH_WITH_WORD){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:                    if(res == EXIT_FAILURE){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:                    if(strcmp(dir->d_name, filename) == 0 || strstr(dir->d_name,filename)!=NULL){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:                        if(res == EXIT_FAILURE){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    printf("Do you want to search at any specific locations?(y/n)\n");
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(strlen(c) > 1){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:    if(flag == 1){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/function_definition.c:        if(res == EXIT_FAILURE){
+/home2/trainee46/base/try/Project/Local_Search_Engine/src/LSE_init.c:                if(strlen(ch) > 1){
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:==9007== --pid is optional if only one valgrind process is running
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edca50 (libc.so.6:memmove) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edbd60 (libc.so.6:strncpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edcd30 (libc.so.6:strcasecmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edb7b0 (libc.so.6:strcat) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edbd90 (libc.so.6:rindex) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4ede480 (libc.so.6:rawmemchr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edcbc0 (libc.so.6:mempcpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edc9f0 (libc.so.6:bcmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edbd20 (libc.so.6:strncmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edb820 (libc.so.6:strcmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edcb20 (libc.so.6:memset) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4ef9db0 (libc.so.6:wcschr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edbcc0 (libc.so.6:strnlen) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edb890 (libc.so.6:strcspn) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edcd80 (libc.so.6:strncasecmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edb860 (libc.so.6:strcpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edcec0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edbdc0 (libc.so.6:strpbrk) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edb7e0 (libc.so.6:index) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edbc90 (libc.so.6:strlen) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4ee6380 (libc.so.6:memrchr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edcdd0 (libc.so.6:strcasecmp_l) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edc9c0 (libc.so.6:memchr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4efab70 (libc.so.6:wcslen) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edc070 (libc.so.6:strspn) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edcd00 (libc.so.6:stpncpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edccd0 (libc.so.6:stpcpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4ede4b0 (libc.so.6:strchrnul) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edce20 (libc.so.6:strncasecmp_l) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/try/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edc900 (libc.so.6:strstr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+Binary file /home2/trainee46/base/try/Project/Local_Search_Engine/bin/LSE matches
+/home2/trainee46/base/try/Project/Local_Search_Engine/inc/headers.h:#ifndef HEADERS_H
+/home2/trainee46/base/try/Project/Local_Search_Engine/inc/headers.h:#endif 
+/home2/trainee46/base/try/Project/Local_Search_Engine/inc/structure.h:#ifndef STRUCTURE_H
+/home2/trainee46/base/try/Project/Local_Search_Engine/inc/structure.h:#endif 
+/home2/trainee46/base/try/Project/Local_Search_Engine/inc/function.h:#ifndef FUNCTIONS_H
+/home2/trainee46/base/try/Project/Local_Search_Engine/inc/function.h:#endif 
+Binary file /home2/trainee46/base/try/Project/Local_Search_Engine/obj/LSE.o matches
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:                       Then if file number is sent, it displays the conetent of that file.
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:    if (-1 == sd)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:    if (-1 == bindret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:    if (-1 == lisret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:        if (-1 == connfd)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:        if ((childpid = fork()) == 0)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:            if (dir)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:                if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:                    if (strlen(buf) < 5)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:                    if (filenum[0] == '0')
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:                    if (fpt)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server.c:                        if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client_functions.c:    if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client_functions.c:        if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client_functions.c:    if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client_functions.c:        if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:    if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:        if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:    if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:        if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:    if ((fp = fopen(fname, "r")) == NULL)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:        if ((strstr(temp, str)) != NULL)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:    // Close the file if still open.
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:    if (fp)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:    if (dir == NULL)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:        if (entity->d_type == DT_REG)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:            if (search_word_in_file(path, str) == SUCCESS)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:        if (entity->d_type == DT_DIR && strcmp(entity->d_name, ".") != 0 && strcmp(entity->d_name, "..") != 0)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:                                             First, the file name will be validated, if file is not present, an error
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:    if ((fp = fopen(file, "r")) == NULL)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:        if (c == EOF)
+/home2/trainee46/base/try/Remote-Search-Engine/src/server_functions.c:    if (fp == NULL)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:    if((argc != 3 || argc != 4) && (argc >4))
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:    The socket function return -1 if socket is not created.
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:    Returns some positive number if socket is created successfully. 
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:    if (-1 == sd)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:    Returns -1 if Connection is not done. 
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:    if (-1 == connfd)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:    if(argv[3]){                        //checking if there is any user given path -RES1
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:        if(choice=='1'||choice=='2'||choice=='3')
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:        	if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:        	if (choice == STRING_CHOICE)                                          //RSE 2 and 4
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:            	if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:            	if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:            	if(strcmp("-1", buf) == 0){
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:            		printf("Continue? [y/n]\n");      //checking if user wants to continue
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:        		if(y_or_n == 'n'){
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:            	if(y_or_n=='y'||y_or_n=='Y'||y_or_n=='n'||y_or_n=='N')
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:            		if(y_or_n == 'y' || y_or_n == 'Y'){
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:            		if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:            		if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:        else if (choice == PATH_CHOICE)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:            if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:            if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:        else if (choice == EXIT_CHOICE)
+/home2/trainee46/base/try/Remote-Search-Engine/src/client.c:        if(y_or_n == 'n'){
+/home2/trainee46/base/try/Remote-Search-Engine/.git/info/exclude:# exclude patterns (uncomment them if you want to use them):
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/update.sample:# hooks.allowmodifytag
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/update.sample:#   This boolean sets whether a tag may be modified after creation. By default
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/update.sample:if [ -z "$GIT_DIR" ]; then
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/update.sample:	echo " (if you want, you could supply GIT_DIR then run" >&2
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/update.sample:if [ -z "$refname" -o -z "$oldrev" -o -z "$newrev" ]; then
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/update.sample:allowmodifytag=$(git config --bool hooks.allowmodifytag)
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/update.sample:# if $newrev is 0000...0000, it's a commit to delete a ref.
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/update.sample:if [ "$newrev" = "$zero" ]; then
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/update.sample:		if [ "$allowunannotated" != "true" ]; then
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/update.sample:		if [ "$allowdeletetag" != "true" ]; then
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/update.sample:		if [ "$allowmodifytag" != "true" ] && git rev-parse $refname > /dev/null 2>&1
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/update.sample:			echo "*** Modifying a tag is not allowed in this repository." >&2
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/update.sample:		if [ "$oldrev" = "$zero" -a "$denycreatebranch" = "true" ]; then
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/update.sample:		if [ "$allowdeletebranch" != "true" ]; then
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/update.sample:		if [ "$allowdeletebranch" != "true" ]; then
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-commit.sample:# An example hook script to verify what is about to be committed.
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-commit.sample:# exit with non-zero status after issuing an appropriate message if
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-commit.sample:if git rev-parse --verify HEAD >/dev/null 2>&1
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-commit.sample:	# Initial commit: diff against an empty tree object
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-commit.sample:if [ "$allownonascii" != "true" ] &&
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-commit.sample:	test $(git diff --cached --name-only --diff-filter=A -z $against |
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-commit.sample:This can cause problems if you want to work with people on other platforms.
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-commit.sample:exec git diff-index --check --cached $against --
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-push.sample:# An example hook script to verify what is about to be pushed.  Called by "git
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-push.sample:	if [ "$local_sha" = $z40 ]
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-push.sample:		if [ "$remote_sha" = $z40 ]
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-push.sample:		if [ -n "$commit" ]
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/commit-msg.sample:# status after issuing an appropriate message if it wants to stop the
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/fsmonitor-watchman.sample:# new and modified files.
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/fsmonitor-watchman.sample:# modified since the given time. Paths must be relative to the root of
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/fsmonitor-watchman.sample:if ($version == 1) {
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/fsmonitor-watchman.sample:if ($^O =~ 'msys' || $^O =~ 'cygwin') {
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/fsmonitor-watchman.sample:	    "Falling back to scanning...\n" if $response eq "";
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/fsmonitor-watchman.sample:	if ($retry > 0 and $o->{error} and $o->{error} =~ m/unable to resolve root .* directory (.*) is not watched/) {
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/fsmonitor-watchman.sample:		    "Falling back to scanning...\n" if $? != 0;
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/fsmonitor-watchman.sample:	    "Falling back to scanning...\n" if $o->{error};
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/applypatch-msg.sample:# appropriate message if it wants to stop the commit.  The hook is
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-rebase.sample:if test "$#" = 2
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-rebase.sample:if test -z "$not_in_master"
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-rebase.sample:if test "$only_next_1" = "$only_next_2"
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-rebase.sample:	if test -z "$not_in_topic"
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-rebase.sample:			if (!exists $not_in_next{$elem->[0]}) {
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-rebase.sample:				if ($msg) {
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-rebase.sample:(1) ... if a topic branch has ever been merged to "next".  Young
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-rebase.sample:(2) ... if a topic branch has been fully merged to "master".
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-rebase.sample:    "master", so if you need further changes, it is better to
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-rebase.sample:	if these match, topic has not merged in next at all.
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-rebase.sample:	if this is empty, it is fully merged to "master".
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-receive.sample:if test -n "$GIT_PUSH_OPTION_COUNT"
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/prepare-commit-msg.sample:# The second includes the output of "git diff --name-status -r"
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/prepare-commit-msg.sample:#       print "\n" . `git diff --cached --name-status -r`
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/prepare-commit-msg.sample:# 	 if /^#/ && $first++ == 0' "$COMMIT_MSG_FILE" ;;
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/prepare-commit-msg.sample:# if test -z "$COMMIT_SOURCE"
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/prepare-commit-msg.sample:#   /usr/bin/perl -i.bak -pe 'print "\n" if !$first_line++' "$COMMIT_MSG_FILE"
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-applypatch.sample:# An example hook script to verify what is about to be committed
+/home2/trainee46/base/try/Remote-Search-Engine/.git/hooks/pre-applypatch.sample:# appropriate message if it wants to stop the commit.
+Binary file /home2/trainee46/base/try/Remote-Search-Engine/.git/objects/df/9c2d7c6a59c19f4a5491b7c9a6b5275cee5afa matches
+/home2/trainee46/base/try/Remote-Search-Engine/test/testfunctions.h:#ifndef __TEST_HEADER_H__
+/home2/trainee46/base/try/Remote-Search-Engine/test/testfunctions.h:#endif
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (CUE_SUCCESS != CU_initialize_registry())
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == pSuite)
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_DIR_TEST_1", DIR_test1))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_DIR_TEST_2", DIR_test2))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_DIR_TEST_2", DIR_test3))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == pSuite)
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FILE_TEST_1", FILE_test1))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FILE_TEST_2", FILE_test2))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FILE_TEST_2", FILE_test3))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == pSuite)
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_WORD_SEARCH_TEST_1", IT2_test1))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_WORD_SEARCH_TEST_2", IT2_test2))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_WORD_SEARCH_TEST_3", IT2_test3))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_WORD_SEARCH_TEST_4", IT2_test4))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_WORD_SEARCH_TEST_5", IT2_test5))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == pSuite)
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FIND_SIZE_TEST_1", IT3_test1))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FIND_SIZE_TEST_2", IT3_test2))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FIND_SIZE_TEST_3", IT3_test3))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FIND_SIZE_TEST_4", IT3_test4))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FIND_SIZE_TEST_5", IT3_test5))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == pSuite)
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_READ_CONTENTS_TEST_1", IT4_test1))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_READ_CONTENTS_TEST_2", IT4_test2))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_READ_CONTENTS_TEST_3", IT4_test3))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == pSuite)
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_LIST_RECURSIVE_TEST_1", IT5_test1))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_LIST_RECURSIVE_TEST_2", IT5_test2))
+/home2/trainee46/base/try/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_LIST_RECURSIVE_TEST_3", IT5_test3))
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:       2*:   32:    if((argc != 3 || argc != 4) && (argc >4))
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        -:   48:    The socket function return -1 if socket is not created.
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        -:   49:    Returns some positive number if socket is created successfully. 
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        2:   57:    if (-1 == sd)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        -:   69:    Returns -1 if Connection is not done. 
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        2:   77:    if (-1 == connfd)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:   88:    if(argv[3]){                        //checking if there is any user given path -RES1
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        3:  130:        if(choice=='1'||choice=='2'||choice=='3')
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        3:  134:        	if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        3:  142:        	if (choice == STRING_CHOICE)                                          //RSE 2 and 4
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  149:            	if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  157:            	if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  163:            	if(strcmp("-1", buf) == 0){
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:    #####:  165:            		printf("Continue? [y/n]\n");      //checking if user wants to continue
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:    #####:  167:        		if(y_or_n == 'n'){
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:       1*:  181:            	if(y_or_n=='y'||y_or_n=='Y'||y_or_n=='n'||y_or_n=='N')
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:       1*:  183:            		if(y_or_n == 'y' || y_or_n == 'Y'){
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  187:            		if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  194:            		if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        2:  218:        else if (choice == PATH_CHOICE)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  226:            if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  234:            if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  245:        else if (choice == EXIT_CHOICE)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client.c.gcov:        2:  257:        if(y_or_n == 'n'){
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client_functions.c.gcov:    #####:   10:    if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client_functions.c.gcov:    #####:   21:        if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client_functions.c.gcov:        2:   44:    if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/client_functions.c.gcov:        2:   53:        if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:   48:    if (-1 == sd)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:   61:    if (-1 == bindret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:   68:    if (-1 == lisret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:   82:        if (-1 == connfd)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:   87:        if ((childpid = fork()) == 0)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:   92:            if (dir)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:        -:  106:                // if(choice_buf[0] == '\0'){
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:        3:  108:                if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:  122:                    if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:       1*:  134:                    if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:       1*:  142:                    if (strlen(buf) < 5)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:  149:                    if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:       1*:  156:                    if (filenum[0] == '0')
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:       1*:  162:                    if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:  173:                    if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:  187:                    if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:  195:                    if (fpt)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:  202:                        if (FAILURE == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:        2:   13:    if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:        2:   24:        if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:    #####:   47:    if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:    #####:   56:        if (-1 == ret)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:      201:   72:    if ((fp = fopen(fname, "r")) == NULL)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:    62692:   80:        if ((strstr(temp, str)) != NULL)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:        -:   87:    // Close the file if still open.
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:      179:   88:    if (fp)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:       79:   99:    if (dir == NULL)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:      437:  116:        if (entity->d_type == DT_REG)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:      201:  118:            if (search_word_in_file(path, str) == SUCCESS)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:      437:  135:        if (entity->d_type == DT_DIR && strcmp(entity->d_name, ".") != 0 && strcmp(entity->d_name, "..") != 0)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:        3:  153:    if ((fp = fopen(file, "r")) == NULL)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:     3313:  164:        if (c == EOF)
+/home2/trainee46/base/try/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:        3:  190:    if (fp == NULL)
+/home2/trainee46/base/try/Remote-Search-Engine/include/utility.h:#ifndef __UTILITY_H__
+/home2/trainee46/base/try/Remote-Search-Engine/include/utility.h:#endif
+/home2/trainee46/base/try/test.c:    if (dir == NULL) {
+/home2/trainee46/base/try/test.c:        if (entry->d_type == DT_DIR) {
+/home2/trainee46/base/try/test.c:            if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
+/home2/trainee46/base/try/test.c:            if (file == NULL) {
+/home2/trainee46/base/try/test.c:                if (strstr(line, search_term) != NULL) {
+/home2/trainee46/base/try/test.c:    if (file == NULL) {
+/home2/trainee46/base/CapGdemo/.git/info/exclude:# exclude patterns (uncomment them if you want to use them):
+/home2/trainee46/base/CapGdemo/.git/hooks/update.sample:# hooks.allowmodifytag
+/home2/trainee46/base/CapGdemo/.git/hooks/update.sample:#   This boolean sets whether a tag may be modified after creation. By default
+/home2/trainee46/base/CapGdemo/.git/hooks/update.sample:if [ -z "$GIT_DIR" ]; then
+/home2/trainee46/base/CapGdemo/.git/hooks/update.sample:	echo " (if you want, you could supply GIT_DIR then run" >&2
+/home2/trainee46/base/CapGdemo/.git/hooks/update.sample:if [ -z "$refname" -o -z "$oldrev" -o -z "$newrev" ]; then
+/home2/trainee46/base/CapGdemo/.git/hooks/update.sample:allowmodifytag=$(git config --bool hooks.allowmodifytag)
+/home2/trainee46/base/CapGdemo/.git/hooks/update.sample:# if $newrev is 0000...0000, it's a commit to delete a ref.
+/home2/trainee46/base/CapGdemo/.git/hooks/update.sample:if [ "$newrev" = "$zero" ]; then
+/home2/trainee46/base/CapGdemo/.git/hooks/update.sample:		if [ "$allowunannotated" != "true" ]; then
+/home2/trainee46/base/CapGdemo/.git/hooks/update.sample:		if [ "$allowdeletetag" != "true" ]; then
+/home2/trainee46/base/CapGdemo/.git/hooks/update.sample:		if [ "$allowmodifytag" != "true" ] && git rev-parse $refname > /dev/null 2>&1
+/home2/trainee46/base/CapGdemo/.git/hooks/update.sample:			echo "*** Modifying a tag is not allowed in this repository." >&2
+/home2/trainee46/base/CapGdemo/.git/hooks/update.sample:		if [ "$oldrev" = "$zero" -a "$denycreatebranch" = "true" ]; then
+/home2/trainee46/base/CapGdemo/.git/hooks/update.sample:		if [ "$allowdeletebranch" != "true" ]; then
+/home2/trainee46/base/CapGdemo/.git/hooks/update.sample:		if [ "$allowdeletebranch" != "true" ]; then
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-commit.sample:# An example hook script to verify what is about to be committed.
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-commit.sample:# exit with non-zero status after issuing an appropriate message if
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-commit.sample:if git rev-parse --verify HEAD >/dev/null 2>&1
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-commit.sample:	# Initial commit: diff against an empty tree object
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-commit.sample:if [ "$allownonascii" != "true" ] &&
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-commit.sample:	test $(git diff --cached --name-only --diff-filter=A -z $against |
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-commit.sample:This can cause problems if you want to work with people on other platforms.
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-commit.sample:exec git diff-index --check --cached $against --
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-push.sample:# An example hook script to verify what is about to be pushed.  Called by "git
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-push.sample:	if [ "$local_sha" = $z40 ]
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-push.sample:		if [ "$remote_sha" = $z40 ]
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-push.sample:		if [ -n "$commit" ]
+/home2/trainee46/base/CapGdemo/.git/hooks/commit-msg.sample:# status after issuing an appropriate message if it wants to stop the
+/home2/trainee46/base/CapGdemo/.git/hooks/fsmonitor-watchman.sample:# new and modified files.
+/home2/trainee46/base/CapGdemo/.git/hooks/fsmonitor-watchman.sample:# modified since the given time. Paths must be relative to the root of
+/home2/trainee46/base/CapGdemo/.git/hooks/fsmonitor-watchman.sample:if ($version == 1) {
+/home2/trainee46/base/CapGdemo/.git/hooks/fsmonitor-watchman.sample:if ($^O =~ 'msys' || $^O =~ 'cygwin') {
+/home2/trainee46/base/CapGdemo/.git/hooks/fsmonitor-watchman.sample:	    "Falling back to scanning...\n" if $response eq "";
+/home2/trainee46/base/CapGdemo/.git/hooks/fsmonitor-watchman.sample:	if ($retry > 0 and $o->{error} and $o->{error} =~ m/unable to resolve root .* directory (.*) is not watched/) {
+/home2/trainee46/base/CapGdemo/.git/hooks/fsmonitor-watchman.sample:		    "Falling back to scanning...\n" if $? != 0;
+/home2/trainee46/base/CapGdemo/.git/hooks/fsmonitor-watchman.sample:	    "Falling back to scanning...\n" if $o->{error};
+/home2/trainee46/base/CapGdemo/.git/hooks/applypatch-msg.sample:# appropriate message if it wants to stop the commit.  The hook is
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-rebase.sample:if test "$#" = 2
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-rebase.sample:if test -z "$not_in_master"
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-rebase.sample:if test "$only_next_1" = "$only_next_2"
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-rebase.sample:	if test -z "$not_in_topic"
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-rebase.sample:			if (!exists $not_in_next{$elem->[0]}) {
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-rebase.sample:				if ($msg) {
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-rebase.sample:(1) ... if a topic branch has ever been merged to "next".  Young
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-rebase.sample:(2) ... if a topic branch has been fully merged to "master".
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-rebase.sample:    "master", so if you need further changes, it is better to
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-rebase.sample:	if these match, topic has not merged in next at all.
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-rebase.sample:	if this is empty, it is fully merged to "master".
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-receive.sample:if test -n "$GIT_PUSH_OPTION_COUNT"
+/home2/trainee46/base/CapGdemo/.git/hooks/prepare-commit-msg.sample:# The second includes the output of "git diff --name-status -r"
+/home2/trainee46/base/CapGdemo/.git/hooks/prepare-commit-msg.sample:#       print "\n" . `git diff --cached --name-status -r`
+/home2/trainee46/base/CapGdemo/.git/hooks/prepare-commit-msg.sample:# 	 if /^#/ && $first++ == 0' "$COMMIT_MSG_FILE" ;;
+/home2/trainee46/base/CapGdemo/.git/hooks/prepare-commit-msg.sample:# if test -z "$COMMIT_SOURCE"
+/home2/trainee46/base/CapGdemo/.git/hooks/prepare-commit-msg.sample:#   /usr/bin/perl -i.bak -pe 'print "\n" if !$first_line++' "$COMMIT_MSG_FILE"
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-applypatch.sample:# An example hook script to verify what is about to be committed
+/home2/trainee46/base/CapGdemo/.git/hooks/pre-applypatch.sample:# appropriate message if it wants to stop the commit.
+/home2/trainee46/base/CapGdemo/.git/logs/HEAD:6ddf6b696422ce3ea7073c03ec483cc2ca22de77 9b6b0ffa51f9a8ef2012c56af79767769066110f DeepakThiagarajan <deepak.badri1105@gmail.com> 1680110491 +0000	commit: modified
+/home2/trainee46/base/CapGdemo/.git/logs/HEAD:476460774c15a842dc33439fdaa4862d870e9357 14f0afd43dbf8616b97e22270379f5b61471fe95 DeepakThiagarajan <deepak.badri1105@gmail.com> 1680282683 +0000	commit: modified code
+/home2/trainee46/base/CapGdemo/.git/logs/HEAD:8714b194326afa2f58f961efda43f006e2dd43fe 945d2253a372b201215e9846ab25ec41aa4cbdd3 DeepakThiagarajan <deepak.badri1105@gmail.com> 1680502232 +0000	commit: client modified
+/home2/trainee46/base/CapGdemo/.git/logs/HEAD:e006c6f622f80807ef14bd0bbeb4ee656ce624a1 f3e68695254a2f63e32463e370050175f5cfefe6 DeepakThiagarajan <deepak.badri1105@gmail.com> 1680540847 +0000	commit: verify
+/home2/trainee46/base/CapGdemo/.git/logs/refs/heads/main:6ddf6b696422ce3ea7073c03ec483cc2ca22de77 9b6b0ffa51f9a8ef2012c56af79767769066110f DeepakThiagarajan <deepak.badri1105@gmail.com> 1680110491 +0000	commit: modified
+/home2/trainee46/base/CapGdemo/.git/logs/refs/heads/main:476460774c15a842dc33439fdaa4862d870e9357 14f0afd43dbf8616b97e22270379f5b61471fe95 DeepakThiagarajan <deepak.badri1105@gmail.com> 1680282683 +0000	commit: modified code
+/home2/trainee46/base/CapGdemo/.git/logs/refs/heads/main:8714b194326afa2f58f961efda43f006e2dd43fe 945d2253a372b201215e9846ab25ec41aa4cbdd3 DeepakThiagarajan <deepak.badri1105@gmail.com> 1680502232 +0000	commit: client modified
+/home2/trainee46/base/CapGdemo/.git/logs/refs/heads/main:e006c6f622f80807ef14bd0bbeb4ee656ce624a1 f3e68695254a2f63e32463e370050175f5cfefe6 DeepakThiagarajan <deepak.badri1105@gmail.com> 1680540847 +0000	commit: verify
+Binary file /home2/trainee46/base/CapGdemo/.git/objects/b7/7b5cb605476672a8c4eff35921b724b8f6576c matches
+Binary file /home2/trainee46/base/CapGdemo/.git/objects/c7/0ca76ccdec7b78aa7e72a79619c19e79093d75 matches
+Binary file /home2/trainee46/base/CapGdemo/.git/objects/7f/bdbae99f63521914865f990afb4a5af3b2db9e matches
+Binary file /home2/trainee46/base/CapGdemo/.git/objects/63/481b227c6703c827d7090414c9b62030ed026d matches
+Binary file /home2/trainee46/base/CapGdemo/.git/objects/87/feceb69cfc57005764e3b188e92b15d1d7b541 matches
+Binary file /home2/trainee46/base/CapGdemo/.git/objects/2f/2353c9c42f1b49163e178c372bd9e51666ffda matches
+Binary file /home2/trainee46/base/CapGdemo/.git/objects/f6/e7c3cb0b3a1250a20fc6beab326cb79792592b matches
+Binary file /home2/trainee46/base/CapGdemo/.git/objects/2a/59e6b6c89321e2a7cb8f4546258b4434fbf0ab matches
+Binary file /home2/trainee46/base/CapGdemo/.git/objects/fd/c873b49036e8d5c365846399aaeda2f9d737c5 matches
+Binary file /home2/trainee46/base/CapGdemo/.git/objects/7c/99931ddde94267564457b4fd8e8b4b92c475c3 matches
+Binary file /home2/trainee46/base/CapGdemo/.git/objects/3e/04fed1fbe752204a192db202d50ed03ac3585b matches
+Binary file /home2/trainee46/base/CapGdemo/.git/objects/b1/05895e4b8f17f7ebd4a16b257d2afc0011f669 matches
+Binary file /home2/trainee46/base/CapGdemo/.git/objects/54/e53e021768713e35a7570ee727af6c78243abf matches
+/home2/trainee46/base/CapGdemo/main2.c:    if (ret != 0) {
+/home2/trainee46/base/CapGdemo/main2.c:            if (strcmp(tokens[i], tokens[j]) == 0) {
+/home2/trainee46/base/CapGdemo/main2.c:        if (tokens[i] != NULL) {
+/home2/trainee46/base/CapGdemo/main2.c:    if (file == NULL) {
+/home2/trainee46/base/CapGdemo/main2.c:        if (tokens[i] != NULL) {
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if(directory != NULL)
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if(errno == ENOTDIR)
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if(prev==NULL)
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if(head == NULL){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:        if(head==NULL)
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:        if(curr->next==NULL)
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c://     if( access( path, F_OK ) != 0) {
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c://     if(f == NULL){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c://         if(strstr(temp, input) != NULL){ //Match found
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c://             if(res == EXIT_FAILURE){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c://     if(f){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if (fp == NULL) {
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if (fgets(result, MAX_LENGTH, fp) != NULL) {
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:        if (strcmp(result, "FOUND\n") == 0) {
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:            if(res == EXIT_FAILURE){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if(fptr == NULL){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:        if(fptr){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if(isFile(fpath) == 0){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:        if(fptr){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if(fileCount == 0 || ptr==NULL){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if(mychoice[0]=='y'||mychoice[0]=='Y')
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:                    if(isdigit(option[i])==0)
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:                if(myflag==1||num<0||num>fileCount-1)
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:            if(strlen(ch) > 1){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    else if((mychoice[0]!='n' && mychoice[0]!='N' )||strlen(mychoice)>1)
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if(ptr == NULL){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:        if(*(ptr+i) != NULL){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if(ptr != NULL){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if(ptr == NULL){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if(head != NULL){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if(res == EXIT_FAILURE){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if (d)
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:            if(strcmp(dir->d_name, ".") == 0 ||
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:            if(isFile(currPath) == 0){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:                if(strstr(dir->d_name,".txt")==NULL
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:                if(search == SEARCH_WITH_WORD){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:                    if(res == EXIT_FAILURE){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:                    if(strcmp(dir->d_name, filename) == 0 || strstr(dir->d_name,filename)!=NULL){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:                        if(res == EXIT_FAILURE){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if(flag == 1){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:        if(res == EXIT_FAILURE){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:    if(flag == 1){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/function_definition.c:        if(res == EXIT_FAILURE){
+/home2/trainee46/base/CapGdemo/Project/RSE/src/main.c:                if(strlen(ch) > 1){
+/home2/trainee46/base/CapGdemo/Project/RSE/inc/function.h:#ifndef FUNCTIONS_H
+/home2/trainee46/base/CapGdemo/Project/RSE/inc/function.h:#endif 
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:    if (-1 == sfd)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:    if (-1 == retval)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:    if (-1 == retval)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:        if (-1 == csfd)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:        if ((childpid = fork()) == 0)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:            if (dir)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:                if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:                    if (strlen(buf) < 5)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:                    if (filenum[0] == '0')
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:                    if (fpt)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server.c:                        if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client_functions.c:    if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client_functions.c:        if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client_functions.c:    if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client_functions.c:        if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:    if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:        if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:    if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:        if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:    if ((fp = fopen(fname, "r")) == NULL)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:        if ((strstr(temp, str)) != NULL)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:    // Close the file if still open.
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:    if (fp)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:    if (dir == NULL)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:        if (entity->d_type == DT_REG)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:            if (search_word_in_file(path, str) == SUCCESS)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:        if (entity->d_type == DT_DIR && strcmp(entity->d_name, ".") != 0 && strcmp(entity->d_name, "..") != 0)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:                                             First, the file name will be validated, if file is not present, an error
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:    if ((fp = fopen(file, "r")) == NULL)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:        if (c == EOF)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/server_functions.c:    if (fp == NULL)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:    if (sfd < 0) {
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:    if (connfd < 0) {
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:        if(choice=='1'||choice=='2'||choice=='3')
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:        	if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:        	if (choice == STRING_CHOICE)                                          //RSE 2 and 4
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:            	if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:            	if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:            	if(strcmp("-1", buf) == 0){
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:            		printf("Continue? [y/n]\n");      //checking if user wants to continue
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:        		if(y_or_n == 'n'){
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:            	if(y_or_n=='y'||y_or_n=='Y'||y_or_n=='n'||y_or_n=='N')
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:            		if(y_or_n == 'y' || y_or_n == 'Y'){
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:            		if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:            		if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:        else if (choice == PATH_CHOICE)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:            if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:            if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:        else if (choice == EXIT_CHOICE)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/src/client.c:        if(y_or_n == 'n'){
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:       2*:   32:    if((argc != 3 || argc != 4) && (argc >4))
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        -:   48:    The socket function return -1 if socket is not created.
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        -:   49:    Returns some positive number if socket is created successfully. 
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        2:   57:    if (-1 == sd)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        -:   69:    Returns -1 if Connection is not done. 
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        2:   77:    if (-1 == connfd)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:   88:    if(argv[3]){                        //checking if there is any user given path -RES1
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        3:  130:        if(choice=='1'||choice=='2'||choice=='3')
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        3:  134:        	if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        3:  142:        	if (choice == STRING_CHOICE)                                          //RSE 2 and 4
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  149:            	if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  157:            	if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  163:            	if(strcmp("-1", buf) == 0){
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:    #####:  165:            		printf("Continue? [y/n]\n");      //checking if user wants to continue
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:    #####:  167:        		if(y_or_n == 'n'){
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:       1*:  181:            	if(y_or_n=='y'||y_or_n=='Y'||y_or_n=='n'||y_or_n=='N')
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:       1*:  183:            		if(y_or_n == 'y' || y_or_n == 'Y'){
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  187:            		if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  194:            		if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        2:  218:        else if (choice == PATH_CHOICE)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  226:            if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  234:            if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        1:  245:        else if (choice == EXIT_CHOICE)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov:        2:  257:        if(y_or_n == 'n'){
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client_functions.c.gcov:    #####:   10:    if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client_functions.c.gcov:    #####:   21:        if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client_functions.c.gcov:        2:   44:    if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/client_functions.c.gcov:        2:   53:        if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:   48:    if (-1 == sd)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:   61:    if (-1 == bindret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:   68:    if (-1 == lisret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:   82:        if (-1 == connfd)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:   87:        if ((childpid = fork()) == 0)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:   92:            if (dir)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:        -:  106:                // if(choice_buf[0] == '\0'){
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:        3:  108:                if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:  122:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:       1*:  134:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:       1*:  142:                    if (strlen(buf) < 5)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:  149:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:       1*:  156:                    if (filenum[0] == '0')
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:       1*:  162:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:  173:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:  187:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:  195:                    if (fpt)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server.c.gcov:        1:  202:                        if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:        2:   13:    if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:        2:   24:        if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:    #####:   47:    if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:    #####:   56:        if (-1 == ret)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:      201:   72:    if ((fp = fopen(fname, "r")) == NULL)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:    62692:   80:        if ((strstr(temp, str)) != NULL)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:        -:   87:    // Close the file if still open.
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:      179:   88:    if (fp)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:       79:   99:    if (dir == NULL)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:      437:  116:        if (entity->d_type == DT_REG)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:      201:  118:            if (search_word_in_file(path, str) == SUCCESS)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:      437:  135:        if (entity->d_type == DT_DIR && strcmp(entity->d_name, ".") != 0 && strcmp(entity->d_name, "..") != 0)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:        3:  153:    if ((fp = fopen(file, "r")) == NULL)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:     3313:  164:        if (c == EOF)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/bin/gcov/server_functions.c.gcov:        3:  190:    if (fp == NULL)
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/include/utility.h:#ifndef __UTILITY_H__
+/home2/trainee46/base/CapGdemo/Project/Remote-Search-Engine/include/utility.h:#endif
+/home2/trainee46/base/CapGdemo/Project/demo/server.c:    if (sfd < 0)
+/home2/trainee46/base/CapGdemo/Project/demo/server.c:    if (retValue < 0)
+/home2/trainee46/base/CapGdemo/Project/demo/server.c:    if (retValue < 0)
+/home2/trainee46/base/CapGdemo/Project/demo/server.c:        if (csfd < 0)
+/home2/trainee46/base/CapGdemo/Project/demo/server.c:        	if (!fp)
+/home2/trainee46/base/CapGdemo/Project/demo/server.c:		if(!fp2)
+Binary file /home2/trainee46/base/CapGdemo/Project/demo/client matches
+/home2/trainee46/base/CapGdemo/Project/demo/client.c:    if (sfd < 0) {
+/home2/trainee46/base/CapGdemo/Project/demo/client.c:    if (retValue < 0) {
+/home2/trainee46/base/CapGdemo/Project/demo/client.c:    if(strlen(ch) > 1){
+/home2/trainee46/base/CapGdemo/Project/demo/client.c:        printf("Any specific path(y for 1/n for 2) \n");
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:    if (-1 == sfd)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:    if (-1 == retval)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:    if (-1 == retval)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:        if (-1 == csfd)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:        if ((childpid = fork()) == 0)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:            if (dir)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:                if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:                    if (strlen(buf) < 5)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:                    if (filenum[0] == '0')
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:                    if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:                    if (fpt)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server.c:                        if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client_functions.c:    if (-1 == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client_functions.c:        if (-1 == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client_functions.c:    if (-1 == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client_functions.c:        if (-1 == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:    if (-1 == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:        if (-1 == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:    if (-1 == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:        if (-1 == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:    if ((fp = fopen(fname, "r")) == NULL)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:        if ((strstr(temp, str)) != NULL)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:    // Close the file if still open.
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:    if (fp)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:    if (dir == NULL)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:        if (entity->d_type == DT_REG)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:            if (search_word_in_file(path, str) == SUCCESS)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:        if (entity->d_type == DT_DIR && strcmp(entity->d_name, ".") != 0 && strcmp(entity->d_name, "..") != 0)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:                                             First, the file name will be validated, if file is not present, an error
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:    if ((fp = fopen(file, "r")) == NULL)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:        if (c == EOF)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/server_functions.c:    if (fp == NULL)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:    if (sfd < 0) {
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:    if (connfd < 0) {
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:        if(choice=='1'||choice=='2'||choice=='3')
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:        	if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:        	if (choice == STRING_CHOICE)                                          //RSE 2 and 4
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:            	if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:            	if (-1 == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:            	if(strcmp("-1", buf) == 0){
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:            		printf("Continue? [y/n]\n");      //checking if user wants to continue
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:        		if(y_or_n == 'n'){
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:            	if(y_or_n=='y'||y_or_n=='Y'||y_or_n=='n'||y_or_n=='N')
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:            		if(y_or_n == 'y' || y_or_n == 'Y'){
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:            		if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:            		if (-1 == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:        else if (choice == PATH_CHOICE)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:            if (FAILURE == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:            if (-1 == ret)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:        else if (choice == EXIT_CHOICE)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/src/client.c:        if(y_or_n == 'n'){
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/testfunctions.h:#ifndef __TEST_HEADER_H__
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/testfunctions.h:#endif
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (CUE_SUCCESS != CU_initialize_registry())
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == pSuite)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_DIR_TEST_1", DIR_test1))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_DIR_TEST_2", DIR_test2))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_DIR_TEST_2", DIR_test3))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == pSuite)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FILE_TEST_1", FILE_test1))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FILE_TEST_2", FILE_test2))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FILE_TEST_2", FILE_test3))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == pSuite)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_WORD_SEARCH_TEST_1", IT2_test1))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_WORD_SEARCH_TEST_2", IT2_test2))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_WORD_SEARCH_TEST_3", IT2_test3))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_WORD_SEARCH_TEST_4", IT2_test4))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_WORD_SEARCH_TEST_5", IT2_test5))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == pSuite)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FIND_SIZE_TEST_1", IT3_test1))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FIND_SIZE_TEST_2", IT3_test2))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FIND_SIZE_TEST_3", IT3_test3))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FIND_SIZE_TEST_4", IT3_test4))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_FIND_SIZE_TEST_5", IT3_test5))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == pSuite)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_READ_CONTENTS_TEST_1", IT4_test1))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_READ_CONTENTS_TEST_2", IT4_test2))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_READ_CONTENTS_TEST_3", IT4_test3))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == pSuite)
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_LIST_RECURSIVE_TEST_1", IT5_test1))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_LIST_RECURSIVE_TEST_2", IT5_test2))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/test/test.c:    if (NULL == CU_add_test(pSuite, "RSE_LIST_RECURSIVE_TEST_3", IT5_test3))
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/include/utility.h:#ifndef __UTILITY_H__
+/home2/trainee46/base/CapGdemo/grepo/Project/Remote-Search-Engine/include/utility.h:#endif
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(directory != NULL)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(errno == ENOTDIR)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(prev==NULL)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(head == NULL){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:        if(head==NULL)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:        if(curr->next==NULL)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if( access( path, F_OK ) != 0) {
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(f == NULL){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:        if(strstr(temp, input) != NULL){ //Match found
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:            if(res == EXIT_FAILURE){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(f){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(fptr == NULL){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:        if(fptr){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(isFile(fpath) == 0){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:        if(fptr){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(fileCount == 0 || ptr==NULL){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(mychoice[0]=='y'||mychoice[0]=='Y')
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:                    if(isdigit(option[i])==0)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:                if(myflag==1||num<0||num>fileCount-1)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:            if(strlen(ch) > 1){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    else if((mychoice[0]!='n' && mychoice[0]!='N' )||strlen(mychoice)>1)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(ptr == NULL){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:        if(*(ptr+i) != NULL){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(ptr != NULL){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(ptr == NULL){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(head != NULL){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(res == EXIT_FAILURE){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if (d)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:            if(strcmp(dir->d_name, ".") == 0 ||
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:            if(isFile(currPath) == 0){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:                if(strstr(dir->d_name,".txt")==NULL
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:                if(search == SEARCH_WITH_WORD){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:                    if(res == EXIT_FAILURE){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:                    if(strcmp(dir->d_name, filename) == 0 || strstr(dir->d_name,filename)!=NULL){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:                        if(res == EXIT_FAILURE){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    printf("Do you want to search at any specific locations?(y/n)\n");
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(strlen(c) > 1){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(flag == 1){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:        if(res == EXIT_FAILURE){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(strlen(c) > 1){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:    if(flag == 1){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/function_definition.c:        if(res == EXIT_FAILURE){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/src/LSE_init.c:                if(strlen(ch) > 1){
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/testfunction.h:#ifndef __MINMAX_TESTFUNCTIONS_H__
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/testfunction.h:#endif
+Binary file /home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/utest1.png matches
+Binary file /home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/utest2.png matches
+Binary file /home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/test matches
+Binary file /home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/testfunction.o matches
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/test.c:    if (CUE_SUCCESS != CU_initialize_registry())
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/test.c:    if (NULL == pSuite)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/test.c:    if(NULL == CU_add_test(pSuite,"Mytestfunction_ID_1", Mytestfunction1))
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/test.c:    if(NULL == CU_add_test(pSuite,"Mytestfunction_ID_2", Mytestfunction2))
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/test.c:    if(NULL == CU_add_test(pSuite,"Mytestfunction_ID_3", Mytestfunction3))
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/test.c:    if(NULL == CU_add_test(pSuite,"Mytestfunction_ID_4", Mytestfunction4))
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/test.c:    if(NULL == CU_add_test(pSuite,"Mytestfunction_ID_5", Mytestfunction5))
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/test.c:    if(NULL == CU_add_test(pSuite,"Mytestfunction_ID_6", Mytestfunction6))
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/test.c:    if(NULL == CU_add_test(pSuite,"Mytestfunction_ID_7", Mytestfunction7))
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/test.c:    if(NULL == CU_add_test(pSuite,"Mytestfunction_ID_8", Mytestfunction8))
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/test.c:   if(NULL == CU_add_test(pSuite,"Mytestfunction_ID_9", Mytestfunction9))
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/test.c:    if(NULL == CU_add_test(pSuite,"Mytestfunction_ID_10", Mytestfunction10))
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/test.c:    if(NULL == CU_add_test(pSuite,"Mytestfunction_ID_11", Mytestfunction11))
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/test/test.c:    if(NULL == CU_add_test(pSuite,"Mytestfunction_ID_12", Mytestfunction12))
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:==9007== --pid is optional if only one valgrind process is running
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edca50 (libc.so.6:memmove) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edbd60 (libc.so.6:strncpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edcd30 (libc.so.6:strcasecmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edb7b0 (libc.so.6:strcat) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edbd90 (libc.so.6:rindex) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4ede480 (libc.so.6:rawmemchr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edcbc0 (libc.so.6:mempcpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edc9f0 (libc.so.6:bcmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edbd20 (libc.so.6:strncmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edb820 (libc.so.6:strcmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edcb20 (libc.so.6:memset) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4ef9db0 (libc.so.6:wcschr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edbcc0 (libc.so.6:strnlen) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edb890 (libc.so.6:strcspn) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edcd80 (libc.so.6:strncasecmp) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edb860 (libc.so.6:strcpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edcec0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edbdc0 (libc.so.6:strpbrk) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edb7e0 (libc.so.6:index) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edbc90 (libc.so.6:strlen) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4ee6380 (libc.so.6:memrchr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edcdd0 (libc.so.6:strcasecmp_l) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edc9c0 (libc.so.6:memchr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4efab70 (libc.so.6:wcslen) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edc070 (libc.so.6:strspn) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edcd00 (libc.so.6:stpncpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edccd0 (libc.so.6:stpcpy) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4ede4b0 (libc.so.6:strchrnul) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edce20 (libc.so.6:strncasecmp_l) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/valclient:--9007-- REDIR: 0x4edc900 (libc.so.6:strstr) redirected to 0x4a2c6e0 (_vgnU_ifunc_wrapper)
+Binary file /home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/bin/LSE matches
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/inc/headers.h:#ifndef HEADERS_H
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/inc/headers.h:#endif 
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/inc/structure.h:#ifndef STRUCTURE_H
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/inc/structure.h:#endif 
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/inc/function.h:#ifndef FUNCTIONS_H
+/home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/inc/function.h:#endif 
+Binary file /home2/trainee46/base/CapGdemo/grepo/Project/Local_Search_Engine/obj/LSE.o matches
+/home2/trainee46/base/CapGdemo/class/feb27/inc/persons.h:#ifndef PERSONS_H
+/home2/trainee46/base/CapGdemo/class/feb27/inc/persons.h:#endif
+/home2/trainee46/base/CapGdemo/class/feb27/inc/login.h:#ifndef LOGIN_H
+/home2/trainee46/base/CapGdemo/class/feb27/inc/login.h:#endif
+/home2/trainee46/base/CapGdemo/class/feb27/inc/common.h:#ifndef COMMON_H
+/home2/trainee46/base/CapGdemo/class/feb27/inc/common.h:#endif
+/home2/trainee46/base/CapGdemo/class/feb27/inc/ticket.h:#ifndef TICKET_H
+/home2/trainee46/base/CapGdemo/class/feb27/inc/ticket.h:#endif
+/home2/trainee46/base/CapGdemo/class/feb22/src/prog6.c:			if(str[i]>str[j])
+/home2/trainee46/base/CapGdemo/class/feb22/src/findPal.c:				if(str[i]==str[j])
+/home2/trainee46/base/CapGdemo/class/feb22/src/findPal.c:					if(flag==0){
+/home2/trainee46/base/CapGdemo/class/feb22/src/findPal.c:						if(str[k]!=str[l])
+/home2/trainee46/base/CapGdemo/class/feb22/src/findPal.c:					if(flag==1)
+/home2/trainee46/base/CapGdemo/class/feb22/src/findPal.c:			if(flag==1)
+/home2/trainee46/base/CapGdemo/class/feb22/src/freqChar.c:		if(count[i]>0)
+/home2/trainee46/base/CapGdemo/class/feb22/src/prog5.c:		if(s1[i]>='a' && s1[i]<='z')
+/home2/trainee46/base/CapGdemo/class/mar27/main.c://	if(fork()>0)
+/home2/trainee46/base/CapGdemo/class/mar27/main.c:				if(fork()>0)
+/home2/trainee46/base/CapGdemo/class/mar27/main.c:				if(fork()>0)
+/home2/trainee46/base/CapGdemo/class/mar02/prog2.c:		if(head==NULL)
+/home2/trainee46/base/CapGdemo/class/mar02/llist.c:		if(head==NULL)
+/home2/trainee46/base/CapGdemo/class/mar10/sampleproject/src/myFunctions.c:	if(fp == NULL)
+/home2/trainee46/base/CapGdemo/class/mar10/sampleproject/src/myFunctions.c:	if(fp == NULL)
+/home2/trainee46/base/CapGdemo/class/mar10/sampleproject/src/myFunctions.c:			if(employe[j].uid > employe[j+1].uid)
+/home2/trainee46/base/CapGdemo/class/mar10/sampleproject/src/myFunctions.c:		if(employe[i].uid==uid)
+/home2/trainee46/base/CapGdemo/class/mar10/sampleproject/src/myFunctions.c:	if(flag!=1)
+/home2/trainee46/base/CapGdemo/class/mar10/sampleproject/inc/myHeader.h:#ifndef MYHEADER_H
+/home2/trainee46/base/CapGdemo/class/mar10/sampleproject/inc/myHeader.h:#endif
+/home2/trainee46/base/CapGdemo/class/trial/assign2b.c:		if(sent[i]==' ')
+/home2/trainee46/base/CapGdemo/class/trial/assign1b.c:	if(radius<0)
+/home2/trainee46/base/CapGdemo/class/trial/assign1b.c:	if(radius>0)
+/home2/trainee46/base/CapGdemo/class/trial/sample5.c:	if(b>a && b<=400)
+/home2/trainee46/base/CapGdemo/class/trial/sample5.c:	else if(b>400 && b<=600)
+/home2/trainee46/base/CapGdemo/class/trial/sample5.c:	else if(b>600 && b<=800)
+/home2/trainee46/base/CapGdemo/class/trial/sample5.c:	else if(b>800 && b<=1000)
+/home2/trainee46/base/CapGdemo/class/trial/sample5.c:	else if(b>1000)
+/home2/trainee46/base/CapGdemo/class/trial/nPrime.c:		if(isPnum(num)){
+/home2/trainee46/base/CapGdemo/class/trial/nPrime.c:		if(val!=2 && val!=3 && val!=5 && val!=7)
+/home2/trainee46/base/CapGdemo/class/trial/sample6.c:    if(whistle
+/home2/trainee46/base/CapGdemo/class/trial/descSort.c:			if(*(ptr2+i)<*(ptr2+j)){
+/home2/trainee46/base/CapGdemo/class/trial/prime.c:	 	if(num%i==0)
+/home2/trainee46/base/CapGdemo/class/trial/prime.c:	if(count==0)
+/home2/trainee46/base/CapGdemo/class/trial/equil.c: 	if (leftsum == rightsum)
+/home2/trainee46/base/CapGdemo/class/trial/sample4.c:if(a<b)
+/home2/trainee46/base/CapGdemo/class/feb24/src/main.c:		printf("\n1.push\n2.pop\n3.display\n4.peek\n5.check if stack is empty\n6.check if stack is full\n7.Exit\n");
+/home2/trainee46/base/CapGdemo/class/feb24/src/main.c:				if(x!=NULL)
+/home2/trainee46/base/CapGdemo/class/feb24/src/main.c:				if(isEmpty(top))
+/home2/trainee46/base/CapGdemo/class/feb24/src/main.c:				if(isFull(top))
+/home2/trainee46/base/CapGdemo/class/feb24/src/myFunctions.c:	if(isFull(*top))
+/home2/trainee46/base/CapGdemo/class/feb24/src/myFunctions.c:	if(isEmpty(*top))
+/home2/trainee46/base/CapGdemo/class/feb24/src/myFunctions.c:	if(isEmpty(top))
+/home2/trainee46/base/CapGdemo/class/feb24/src/myFunctions.c:	if(top==-1)
+/home2/trainee46/base/CapGdemo/class/feb24/src/myFunctions.c:	if(top==max-1)
+/home2/trainee46/base/CapGdemo/class/feb24/src/myFunctions.c:	if(top==-1)
+Binary file /home2/trainee46/base/CapGdemo/class/feb24/bin/out matches
+Binary file /home2/trainee46/base/CapGdemo/class/feb24/obj/main.o matches
+/home2/trainee46/base/CapGdemo/class/dummyfolder/count.c:    	if(left==right)
+/home2/trainee46/base/CapGdemo/class/dummyfolder/primeornot.c:	if(flag == 0)
+/home2/trainee46/base/CapGdemo/class/dummyfolder/primeornot.c:	if(num<1)
+/home2/trainee46/base/CapGdemo/class/dummyfolder/primeornot.c:	if(flag != 1){
+/home2/trainee46/base/CapGdemo/class/dummyfolder/primeornot.c:		if(num % it == 0)
+/home2/trainee46/base/CapGdemo/class/dummyfolder/nPrime.c:		if(isPnum(num)){
+/home2/trainee46/base/CapGdemo/class/dummyfolder/nPrime.c:		if(val!=2 && val!=3 && val!=5 && val!=7)
+/home2/trainee46/base/CapGdemo/class/dummyfolder/myheader.c:		if(n%i==0){
+/home2/trainee46/base/CapGdemo/class/dummyfolder/sumofprime.c:		if(sum(i)==1 && sum(n-i)==1)
+/home2/trainee46/base/CapGdemo/class/dummyfolder/sumofprime.c:	if(flag==0)
+/home2/trainee46/base/CapGdemo/class/dummyfolder/mergenames.c:		if(i<strlen(a))
+/home2/trainee46/base/CapGdemo/class/dummyfolder/mergenames.c:		if(i<strlen(b))
+/home2/trainee46/base/CapGdemo/class/dummyfolder/3b.c:    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+/home2/trainee46/base/CapGdemo/class/dummyfolder/3b.c:        if (!isVowel(arr[index][i])) {
+/home2/trainee46/base/CapGdemo/class/dummyfolder/3b.c:        printf("2. Check if a character is a vowel\n");
+/home2/trainee46/base/CapGdemo/class/dummyfolder/3b.c:                if (index >= 0 && index < sizeof(arr) / sizeof(arr[0])) {
+/home2/trainee46/base/CapGdemo/class/dummyfolder/3b.c:                if (isVowel(ch) == EXIT_SUCCESS) {
+/home2/trainee46/base/CapGdemo/class/dummyfolder/3b.c:                if (index >= 0 && index < sizeof(arr) / sizeof(arr[0])) {
+/home2/trainee46/base/CapGdemo/class/dummyfolder/descSort.c:			if(*(ptr2+i)<*(ptr2+j)){
+/home2/trainee46/base/CapGdemo/class/dummyfolder/array1.c:			if(arr[i]>arr[j])
+/home2/trainee46/base/CapGdemo/class/dummyfolder/array1.c:			if(arr[i]==j)
+/home2/trainee46/base/CapGdemo/class/dummyfolder/array1.c:		if(flag==0)
+/home2/trainee46/base/CapGdemo/class/dummyfolder/array2.c:	if(sum != 0)
+/home2/trainee46/base/CapGdemo/class/dummyfolder/array2.c:	if(gender == 'M')
+/home2/trainee46/base/CapGdemo/class/dummyfolder/array2.c:	else if(gender == 'F')
+/home2/trainee46/base/CapGdemo/class/dummyfolder/nameSort.c:			if(strcmp(arr[i],arr[j])>0)
+/home2/trainee46/base/CapGdemo/class/dummyfolder/elemOdd.c:	printf("\nModified Array:");
+/home2/trainee46/base/CapGdemo/class/dummyfolder/prog5.c:		if(flag==0)
+/home2/trainee46/base/CapGdemo/class/dummyfolder/prog5.c:			if((pArr[i]+pArr[j])==gNum)
+/home2/trainee46/base/CapGdemo/class/dummyfolder/myheader1.c:	if(num<1)
+/home2/trainee46/base/CapGdemo/class/dummyfolder/myheader1.c:	if(flag != 1){
+/home2/trainee46/base/CapGdemo/class/dummyfolder/myheader1.c:		if(num % it == 0)
+/home2/trainee46/base/CapGdemo/class/mar03/prog2.c:		if(!splits)
+/home2/trainee46/base/CapGdemo/class/mar03/prog2.c:			if(strcmp(words[i],words[j])>0)
+/home2/trainee46/base/CapGdemo/class/lCalci/src/prg1.c:	#ifdef DEBUG
+/home2/trainee46/base/CapGdemo/class/lCalci/src/prg1.c:	#endif
+/home2/trainee46/base/CapGdemo/class/mar06/dllstack.c:    if (*top != NULL) {
+/home2/trainee46/base/CapGdemo/class/mar06/dllstack.c:    if (*top == NULL) {
+/home2/trainee46/base/CapGdemo/class/mar06/dllstack.c:    if (*top != NULL) {
+/home2/trainee46/base/CapGdemo/class/mar06/dllstack.c:    if (top == NULL) {
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_12c.c:        if (word[i] != word[j]) {
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_12c.c:    if (argc < 2) {
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_12c.c:        if (pthread_create(&threads[i], NULL, isPalindrome, argv[i+1]) != 0) {
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3b.c:    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3b.c:        if (!isVowel(arr[index][i])) {
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3b.c:        printf("2. Check if a character is a vowel\n");
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3b.c:                if (index >= 0 && index < sizeof(arr) / sizeof(arr[0])) {
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3b.c:                if (isVowel(ch) == EXIT_SUCCESS) {
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3b.c:                if (index >= 0 && index < sizeof(arr) / sizeof(arr[0])) {
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_1b.c:	if(radius>=0)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/SRS_Stack_Using_Array_V1.0/src/main.c:	if(sizeofstack!=-1)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/SRS_Stack_Using_Array_V1.0/src/main.c:					if(isFull(top))
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/SRS_Stack_Using_Array_V1.0/src/main.c:					if(isEmpty(top))
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/SRS_Stack_Using_Array_V1.0/src/main.c:					if(sizeofstack>0)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/SRS_Stack_Using_Array_V1.0/src/myFunctions.c:	if(n<=size)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/SRS_Stack_Using_Array_V1.0/src/myFunctions.c:		if(n>0)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/SRS_Stack_Using_Array_V1.0/src/myFunctions.c:	if(top==size-1)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/SRS_Stack_Using_Array_V1.0/src/myFunctions.c:	if(top==-1)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_2b.c:		if(str[i]!=' ')
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_2b.c:		if(str[i] == ' ')
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_2b.c:		if(str[i]==' ')
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_2b.c:		if(str[i]!=' ')
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_2b.c:			if(length>max)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_2b.c:	if(length>max)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_2b.c:	if(p)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Linux_Commands.txt:	b. rm command is used to remove files from a directory. rmdir command is used to remove a directory if it is empty. We can also use rm with -r to
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Linux_Commands.txt:       mkdir -p: checks and makes parent directory if does not exists.
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Linux_Commands.txt:14. We could not change to a directory if the directory doesn’t exists or not created.
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3.c:	if(ch == 1)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3.c:	else if (ch == 2)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3.c:	if(r!=0)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3.c:		if(i<max_size)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3.c:			if(arr[j]>arr[j+1])
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3.c:		if(swap==0)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3.c:	if(l<r)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3.c:		if(L[i] <= M[j])
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3.c:		if(arr[mid] == se)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_3.c:		if(arr[mid]<se)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_4.c:    if (fp == NULL) {
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_4.c:        if (line[line_length - 1] == '\n') {
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_4.c:            // Remove the newline character if present
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_4.c:        // Add the line to the stack if there is room
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_4.c:        if (*stack_size < MAX_STACK_SIZE) {
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_4.c:        if (line_length > longest_line_length) {
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_4.c:        if (strlen(stack[i]) == longest_line_length) {
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Vi_Editor-Assignments.txt:  shift + g – to move to end of the file 
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/demo.c:	if(fptr == NULL)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/demo.c:	if( fptr == NULL)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_2.c:		if(str[i]!=' ')
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_2.c:		if(str[i] == ' ')
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_2.c:		if(str[i]==' ')
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_2.c:		if(str[i]!=' ')
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_2.c:			if(length>max)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_2.c:	if(length>max)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_1.c:	if(count>0)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_1.c:		if(i<ma_si)
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_1.c:		if(max<arr1[i])
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_1.c:		if(min>arr1[i])
+/home2/trainee46/base/CapGdemo/class/Mandatory_Assignments/Nalandha_C_Basic_Assign_1.c:		if(arr1[i]==n)
+/home2/trainee46/base/CapGdemo/demo/server2.c:    if (sfd < 0)
+/home2/trainee46/base/CapGdemo/demo/server2.c:    if (retValue < 0)
+/home2/trainee46/base/CapGdemo/demo/server2.c:    if (retValue < 0)
+/home2/trainee46/base/CapGdemo/demo/server2.c:	if (csfd < 0)
+/home2/trainee46/base/CapGdemo/demo/server2.c:        if (pid < 0) {
+/home2/trainee46/base/CapGdemo/demo/server2.c:        if (pid == 0) {  // Child process
+/home2/trainee46/base/CapGdemo/demo/server2.c:            if (n < 0) {
+/home2/trainee46/base/CapGdemo/demo/server2.c:            if (n < 0) {
+/home2/trainee46/base/CapGdemo/demo/server2.c:            if (ret == EXIT_FAILURE) {
+/home2/trainee46/base/CapGdemo/demo/server2.c:            if (n < 0) {
+/home2/trainee46/base/CapGdemo/demo/server2.c:    if (!(dir = opendir(dir_path))) {
+/home2/trainee46/base/CapGdemo/demo/server2.c:        if (entry->d_type == DT_DIR) {
+/home2/trainee46/base/CapGdemo/demo/server2.c:            if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
+/home2/trainee46/base/CapGdemo/demo/server2.c:            if (strstr(entry->d_name, search_term) != NULL) {
+/home2/trainee46/base/CapGdemo/demo/server2.c:                if (*head_ref == NULL) {
+/home2/trainee46/base/CapGdemo/demo/server2.c:        if (i == index) {
+/home2/trainee46/base/CapGdemo/demo/server2.c:    if (fp == NULL) {
+/home2/trainee46/base/CapGdemo/demo/server.c:    if (sfd < 0)
+/home2/trainee46/base/CapGdemo/demo/server.c:    if (retValue < 0)
+/home2/trainee46/base/CapGdemo/demo/server.c:    if (retValue < 0)
+/home2/trainee46/base/CapGdemo/demo/server.c:        if (csfd < 0)
+/home2/trainee46/base/CapGdemo/demo/server.c:        	if (!fp)
+/home2/trainee46/base/CapGdemo/demo/server.c:		if(!fp2)
+/home2/trainee46/base/CapGdemo/demo/server_function2.c:    if (dir == NULL) {
+/home2/trainee46/base/CapGdemo/demo/server_function2.c:        if (entry->d_type == DT_DIR && strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) {
+/home2/trainee46/base/CapGdemo/demo/server_function2.c:        else if (entry->d_type == DT_REG) {
+/home2/trainee46/base/CapGdemo/demo/server_function2.c:            if (file == NULL) {
+/home2/trainee46/base/CapGdemo/demo/server_function2.c:                if (strstr(line, search_term) != NULL) {
+/home2/trainee46/base/CapGdemo/demo/server_function2.c:            if (match_found) {
+/home2/trainee46/base/CapGdemo/demo/server_function2.c:                if (*list == NULL) {
+/home2/trainee46/base/CapGdemo/demo/client1.c:    if (sfd < 0) {
+/home2/trainee46/base/CapGdemo/demo/client1.c:    if (retValue < 0) {
+Binary file /home2/trainee46/base/CapGdemo/demo/client matches
+/home2/trainee46/base/CapGdemo/demo/client2.c:    if (sfd < 0) {
+/home2/trainee46/base/CapGdemo/demo/client2.c:    if (retValue < 0) {
+/home2/trainee46/base/CapGdemo/demo/client.c:    if (sfd < 0) {
+/home2/trainee46/base/CapGdemo/demo/client.c:    if (retValue < 0) {
+/home2/trainee46/base/CapGdemo/demo/client.c:    if(strlen(ch) > 1){
+/home2/trainee46/base/CapGdemo/demo/client.c:        printf("Any specific path(y for 1/n for 2) \n");
+/home2/trainee46/base/CapGdemo/demo/server_function.c:    if (dir == NULL) {
+/home2/trainee46/base/CapGdemo/demo/server_function.c:        if (entry->d_type == DT_DIR && strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) {
+/home2/trainee46/base/CapGdemo/demo/server_function.c:        else if (entry->d_type == DT_REG) {
+/home2/trainee46/base/CapGdemo/demo/server_function.c:            if (file == NULL) {
+/home2/trainee46/base/CapGdemo/demo/server_function.c:                if (strstr(line, search_term) != NULL) {
+/home2/trainee46/base/CapGdemo/demo/server_function.c:            if (match_found) {
+/home2/trainee46/base/CapGdemo/demo/server1.c:    if (sfd < 0)
+/home2/trainee46/base/CapGdemo/demo/server1.c:    if (retValue < 0)
+/home2/trainee46/base/CapGdemo/demo/server1.c:    if (retValue < 0)
+/home2/trainee46/base/CapGdemo/demo/server1.c:	if (csfd < 0)
+/home2/trainee46/base/CapGdemo/demo/server1.c:    	if (search_files(path, msg, result) == EXIT_FAILURE)
+/home2/trainee46/base/CapGdemo/main.c:    if (output_file == NULL) {
+/home2/trainee46/base/CapGdemo/main.c:    if (grep_output == NULL) {
+/home2/trainee46/base/CapGdemo/main.c:    if (fp == NULL) {
+/home2/trainee46/base/CapGdemo/main.c:        if (token == NULL) {
+/home2/trainee46/base/CapGdemo/main.c:        if (num_tokens == MAX_TOKENS) {
+/home2/trainee46/base/CapGdemo/main.c:    if (choice >= 1 && choice <= num_tokens) {
+/home2/trainee46/base/CapGdemo/main.c:        if (file == NULL) {
+/home2/trainee46/base/CapGdemo/main.c:    if ((dir = opendir(path)) == NULL) {
+/home2/trainee46/base/CapGdemo/main.c:        if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
+/home2/trainee46/base/CapGdemo/main.c:        if (entry->d_type == DT_DIR) {
+/home2/trainee46/base/CapGdemo/main.c:        } else if (entry->d_type == DT_REG) {

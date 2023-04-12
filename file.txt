@@ -1,0 +1,5 @@
+/home2/trainee46/base//CapGdemo/.git/hooks/pre-push.sample
+/home2/trainee46/base//CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov
+/home2/trainee46/base//CapGdemo/grepo/Project/Local_Search_Engine/test/Makefile
+/home2/trainee46/base//CapGdemo/class/Mandatory_Assignments/Vi_Editor-Assignments.txt
+/home2/trainee46/base//CapGdemo/demo/t1.txt

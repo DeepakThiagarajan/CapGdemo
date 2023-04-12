@@ -1,0 +1,1 @@
+/home2/trainee46/base//CapGdemo/Project/Remote-Search-Engine/bin/gcov/client.c.gcov

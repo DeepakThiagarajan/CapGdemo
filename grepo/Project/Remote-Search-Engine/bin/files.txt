@@ -1,0 +1,2 @@
+1		t1.txt		/home2/trainee46//base/CapGdemo/Project/demo/t1.txt
+2		t1.txt		/home2/trainee46//base/CapGdemo/demo/t1.txt

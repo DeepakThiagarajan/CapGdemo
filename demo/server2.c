@@ -78,14 +78,8 @@ int main()
         	perror("accept() ");
         	exit(EXIT_FAILURE);
     	}
-   	printf("\nServer: Client got a connection\n");    {
-        perror("listen() ");
-        exit(EXIT_FAILURE);
+   	printf("\nServer: Client got a connection\n");    
 
-        if (csfd < 0) {
-            perror("ERROR on accept");
-            exit(1);
-        }
 
         pid = fork();
         if (pid < 0) {

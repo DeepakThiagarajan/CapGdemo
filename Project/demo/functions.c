@@ -30,8 +30,8 @@ char * search_for_word(const char *path, const char *word) {
         fprintf(output_file, "%s", line);
     }
     long int size=ftell(output_file);
-	char retu[100]={0,};
-	bzero(retu,100);
+	char *retu;
+	
 	if(size>1)
 	{
 		strcpy(retu,"SUCCESS");
@@ -50,13 +50,13 @@ char * search_for_word(const char *path, const char *word) {
 	return retu;
 }
 
-char* display_tokens() {
-    char line[MAX_LINE_LENGTH];
+char* displ1() {
+    char *line;
     FILE *fp = fopen("file.txt", "r");
 
     if (fp == NULL) {
         printf("Error opening file.txt\n");
-        return;
+        return "EXIT_FAILURE";
     }
 
     // Tokenize the file contents and display the tokens
@@ -78,7 +78,7 @@ char* display_tokens() {
     fclose(fp);
 	char out[20];
 	
-	bzero(line,MAX_LINE_LENGTH);
+//	bzero(line,MAX_LINE_LENGTH);
 	strcpy(line,"Found ");
 	sprintf(out,"%d",num_tokens);
 	strcat(line,out);
@@ -100,6 +100,15 @@ char *displ2(char choice[102])
 {
 
     // Prompt the user to select a file to display its contents
+    char line[MAX_LINE_LENGTH];
+    FILE *fp = fopen("file.txt", "r");
+
+    if (fp == NULL) {
+        printf("Error opening file.txt\n");
+        return "EXIT_FAILURE";
+    }
+
+    // Tokenize the file contents and display the tokens
     int choice1=atoi(choice);
  //   printf("Enter the number of the file to display its contents (0 to exit): ");
    // scanf("%d", &choice);
@@ -127,7 +136,7 @@ char *displ2(char choice[102])
 		strcat(line1,"\n");
         } else {
 		strcpy(line1,"Contents of file: ");
-		strcat(line1, tokens[choice]);
+		strcat(line1, tokens[choice1]);
 		strcat(line1,"\n\n");
             while (fgets(line, MAX_LINE_LENGTH, file) != NULL) {
                 strcat(line1, line);
@@ -138,14 +147,14 @@ char *displ2(char choice[102])
 	return line1;
 }
 // Function to recursively search for directories and files
-void search(const char *path, const char *word) {
+char * search(const char *path, const char *word) {
     
     DIR *dir;
     struct dirent *entry;
 
     if ((dir = opendir(path)) == NULL) {
         printf("Error opening directory: %s\n", path);
-        return;
+        return "EXIT_FAILURE";
     }
 
     // Iterate over all entries in the directory
@@ -159,10 +168,10 @@ void search(const char *path, const char *word) {
 
         if (entry->d_type == DT_DIR) {
             // Recursively search the subdirectory
-            search(full_path, word);
+            return search(full_path, word);
         } else if (entry->d_type == DT_REG) {
             // Search the file for the word
-            search_for_word(path, word);
+            return search_for_word(path, word);
         }
     }
 

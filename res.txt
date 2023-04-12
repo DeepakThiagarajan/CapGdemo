@@ -1,0 +1,8 @@
+/home2/trainee46/base/CapGdemo/mar27/main.c
+/home2/trainee46/base/CapGdemo/calcArea/src/main.c
+/home2/trainee46/base/CapGdemo/mar10/sampleproject/src/main.c
+/home2/trainee46/base/CapGdemo/feb21/calcArea/src/main.c
+/home2/trainee46/base/CapGdemo/feb24/src/main.c
+/home2/trainee46/base/CapGdemo/Project/RSE/src/main.c
+/home2/trainee46/base/CapGdemo/Mandatory_Assignments/SRS_Stack_Using_Array_V1.0/src/main.c
+/home2/trainee46/base/CapGdemo/Mandatory_Assignments/SRS_Array_Operations_Using_Pointer_V1.0/src/main.c

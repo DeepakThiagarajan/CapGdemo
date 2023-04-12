@@ -7,7 +7,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <dirent.h>
-#include "server_function.c"
+#include "server_function2.c"
 
 #define MAXBUFF 100000
 #define MAXCMD 100000
@@ -39,7 +39,7 @@ int main()
 
     serv_address.sin_family = AF_INET;
     serv_address.sin_port = htons(PORTNO);
-    serv_address.sin_addr.s_addr = inet_addr("127.0.0.4");
+    serv_address.sin_addr.s_addr = inet_addr("127.0.0.5");
 
     retValue = bind(sfd, (struct sockaddr *)&serv_address, sizeof(serv_address));
     if (retValue < 0)
@@ -67,8 +67,10 @@ int main()
         	exit(EXIT_FAILURE);
     	}
    	printf("\nServer: Client got a connection\n");
-    	read(csfd, msg, MAXBUFF);
-    	read(csfd, path, MAXBUFF);
+//    	read(csfd, msg, MAXBUFF);
+//    	read(csfd, path, MAXBUFF);
+	recv(csfd, msg, MAXBUFF, 0);
+	recv(csfd, path, MAXBUFF, 0);
 
     // perform search and store results in a buffer
     	char result[MAXBUFF] = {0,};
@@ -79,7 +81,8 @@ int main()
     	}
 
     // send results back to the client
-    	write(csfd, result, strlen(result) + 1);
+//    	write(csfd, result, strlen(result) + 1);
+	send(csfd, result, strlen(result) + 1, 0);
      }
 //    close(sfd);
 

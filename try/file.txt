@@ -1,0 +1,3 @@
+/home2/trainee46/base//try/Remote-Search-Engine/src/client.c
+/home2/trainee46/base//try/Remote-Search-Engine/.git/hooks/pre-push.sample
+/home2/trainee46/base//try/Remote-Search-Engine/bin/gcov/client.c.gcov

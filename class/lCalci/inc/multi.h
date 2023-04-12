@@ -1,0 +1,2 @@
+int multi(int,int);
+

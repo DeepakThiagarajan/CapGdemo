@@ -37,7 +37,7 @@ int main()
     memset(&serv_address, 0, sizeof(serv_address));
     serv_address.sin_family = AF_INET;
     serv_address.sin_port = htons(PORTNO);
-    serv_address.sin_addr.s_addr = inet_addr("127.0.0.4");
+    serv_address.sin_addr.s_addr = inet_addr("127.0.0.5");
 
     retValue = connect(sfd, (struct sockaddr *)&serv_address, sizeof(serv_address));
     if (retValue < 0) {
@@ -53,15 +53,18 @@ int main()
     
 	printf("\nEnter the word/char to search \n");
 	scanf("%s", msg);
-	write(sfd, msg, strlen(msg));
+//	write(sfd, msg, strlen(msg));
+	send(sfd, msg, strlen(msg), 0);
     
     printf("\n -----------------------------------------------------------\n");
     printf("The Base Path Name");
     printf("%s\n", path);
     printf("Searching wih base path ..\n");
-    write(sfd, path, 1000);
+//    write(sfd, path, 1000);
+    send(sfd,path, strlen(path), 0);
         
-    read(sfd,buf,MAXCMD);
+//    read(sfd,buf,MAXCMD);
+    recv(sfd,buf,MAXCMD,0);
     printf("\n\n%s\n\n",buf);
     // Close the socket
 //    close(sfd);

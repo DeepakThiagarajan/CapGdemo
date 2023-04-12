@@ -71,23 +71,28 @@ int main()
 		
         	memset(msg, '\0', MAXBUFF);
         	read(csfd, msg, MAXBUFF);
-		char word[MAXBUFF] = msg;
+		char word[MAXBUFF];
+		strcpy(word,msg);
+
 		bzero(msg,MAXBUFF);
         	read(csfd,msg, MAXBUFF);
-		char path[MAXBUFF] = msg;
+		char path[MAXBUFF];
+		strcpy(path,msg);
 		
 		bzero(msg,MAXBUFF);		
-		msg = search(path,word);
+		strcpy(msg,search(path,word));
 		write(csfd,msg,strlen(msg));
 	
-		char sorf[MAXBUFF] = read(csfd,msg,strlen(msg));
+		char sorf[MAXBUFF];
+		read(csfd,msg,strlen(msg));
+		strcpy(sorf,msg);
 		if(strcmp(sorf,"SUCCESS")== 0)
 		{	
-			msg = disp1();
+			strcpy(msg, display_tokens());
 			write(csfd,msg,strlen(msg));
 			read(csfd,msg,strlen(msg));
 			
-			msg = disp2();
+			strcpy(msg ,displ2("1"));
 			write(csfd,msg,strlen(msg));
 		}
 		

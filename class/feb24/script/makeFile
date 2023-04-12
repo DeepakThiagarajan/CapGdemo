@@ -1,0 +1,30 @@
+CC= gcc
+CFLAGS= -Wall -g -c
+LDFLAGS= -o
+
+INC=./inc/
+SRC=./src
+OBJ=./obj
+BIN=./bin
+
+IFLAGS= -I $(INC)
+all : main
+
+main: $(OBJ)/main.o $(OBJ)/myFunctions.o
+	$(CC) $(LDFLAGS) $(BIN)/out $(OBJ)/main.o $(OBJ)/myFunctions.o
+
+$(OBJ)/main.o: $(SRC)/main.c
+	$(CC) $(CFLAGS) $(SRC)/main.c $(IFLAGS)
+	mv *.o $(OBJ)/
+
+$(OBJ)/myFunctions.o: $(SRC)/myFunctions.c
+	$(CC) $(CFLAGS) $(SRC)/myFunctions.c $(IFLAGS)
+	mv *.o $(OBJ)/
+
+clean:
+
+	rm -f $(BIN)/*
+	rm -f $(OBJ)/*
+
+	@echo "Cleaned"
+
